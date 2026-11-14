@@ -31,8 +31,7 @@ Pages du schéma : 01_ALIM_5V_3V3 `23891438148d8911`, 02_ESP32_DEVKIT `0b7000125
 ## Ce qui reste à Julien
 
 1. Relire `hardware/rapports/LIVRAISON.md` §4 (vérifications avant de payer) et `docs/memoire/DECISIONS.md`.
-2. Donner le droit de push (PO-06) : tous les commits de la session sont locaux.
-3. Commander (options : `LIVRAISON.md` §5).
+2. Commander (options : `LIVRAISON.md` §5).
 
 ## Outils (hors dépôt, DEC-015)
 

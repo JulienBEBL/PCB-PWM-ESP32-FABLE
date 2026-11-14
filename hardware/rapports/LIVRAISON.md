@@ -66,7 +66,6 @@ Fiches à vis à commander à part (non fournies par l'assemblage) : Kangnex sé
 | 3 | Toutes les lignes de la BOM « confirmées », aucune en rupture ; en particulier **C1354132** (watchdog). En rupture : remplacer par **C46043** | Page de commande, étape BOM |
 | 4 | Borniers et barrettes reconnus comme composants traversants (assemblage « Standard ») | Idem |
 | 5 | Relire `DECISIONS.md` (DEC-006 à DEC-020) | Dépôt |
-| 6 | Donner le droit d'écriture GitHub au compte `Jujuxw9` ou reconnecter `gh` : les commits sont locaux (PO-06) | — |
 
 ## 5. Options de commande JLCPCB recommandées
 
@@ -96,7 +95,6 @@ Voir `docs/memoire/POINTS_OUVERTS.md`. Les principaux :
 |---|---|---|
 | PO-01 | Mesurer l'entraxe de la carte de dev reçue (22,86 attendu) | À réception |
 | PO-03 | Test au multimètre de la diode USB de la carte de dev | À réception |
-| PO-06 | Push GitHub refusé | Maintenant |
 | PO-07 | Sens du vérin (rouge = sortie) à confirmer à vide | Mise en service |
 | PO-09 | Sens de D1 à confirmer dans l'aperçu JLCPCB | Commande |
 | PO-10 | Stock du watchdog | Commande |
