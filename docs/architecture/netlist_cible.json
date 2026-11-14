@@ -385,10 +385,10 @@
   },
   {
    "ref": "R303",
-   "lcsc": "C23140",
-   "val": "33R",
+   "lcsc": "C21190",
+   "val": "1k",
    "page": "P3",
-   "fn": "Sortie U3",
+   "fn": "Sortie U3 (1 k : limite le courant pendant l impulsion basse de GPIO1 au demarrage)",
    "pins": {
     "1": "PWM_BUF",
     "2": "PWM_IN"

@@ -1,6 +1,6 @@
 # BOM verifiee
 
-Generee depuis `docs/architecture/netlist_cible.json`. 136 composants, 46 references (18 Basic, 28 Extended).
+Generee depuis `docs/architecture/netlist_cible.json`. 136 composants, 45 references (17 Basic, 28 Extended).
 Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = quantite commandable.
 
 | Reperes | Qte | Valeur | Reference | LCSC | Classe | Montage | Stock | Dispo | Alternative |
@@ -18,10 +18,9 @@ Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = qua
 | J20, J21, J22 | 3 | Barrette F 1x22 | ZX-PM2.54-1-22PY | C7499337 | Extended | Traversant | 11380 | 10715 |  |
 | D9, D11, D12, D10 | 4 | ESD5Z5V0 | ESD5Z5V0 | C85708 | Extended | CMS | 3227 | 2825 | — |
 | R301, R403, R408, R417, R420, R425 | 6 | 100k | 0603WAF1003T5E | C25803 | Basic | CMS | 14794722 | 12406848 |  |
-| R302, R311, R321, R312, R322, R313, R323, R314, R324, R315, R325, R316, R326, R317, R327, R318, R328, R405, R415 | 19 | 1k | 0603WAF1001T5E | C21190 | Basic | CMS | 27171723 | 20459428 |  |
+| R302, R303, R311, R321, R312, R322, R313, R323, R314, R324, R315, R325, R316, R326, R317, R327, R318, R328, R405, R415 | 20 | 1k | 0603WAF1001T5E | C21190 | Basic | CMS | 27171723 | 20459428 |  |
 | C301 | 1 | 1nF | CL10B102KB8NNNC | C1588 | Basic | CMS | 5719676 | 4436954 |  |
 | U3 | 1 | SN74LVC1G17 | SN74LVC1G17DBVR | C7836 | Extended | CMS | 6245 | 4046 | — |
-| R303 | 1 | 33R | 0603WAF330JT5E | C23140 | Basic | CMS | 3194235 | 2586740 |  |
 | J4 | 1 | Bornier 6 pts 3,81 | WJ15EDGRC-3.81-06P-14-00A | C7246 | Extended | Traversant | 18147 | 17175 |  |
 | J5 | 1 | Bornier 7 pts 3,81 | WJ15EDGRC-3.81-07P-14-00A | C24525 | Extended | Traversant | 2931 | 2780 | — |
 | U11, U12 | 2 | SRV05-4 | SRV05-4-P-T7 | C85364 | Extended | CMS | 20281 | 14178 |  |

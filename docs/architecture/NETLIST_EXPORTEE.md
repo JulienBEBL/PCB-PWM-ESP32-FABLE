@@ -1,6 +1,6 @@
 # Netlist exportee d'EasyEDA (net par net)
 
-Export : 2026-11-14T13:43 — 136 composants, 78 nets. Ecarts avec la netlist cible : 0.
+Export : 2026-11-14T15:06 — 136 composants, 78 nets. Ecarts avec la netlist cible : 0.
 
 | Net | Broches |
 |---|---|

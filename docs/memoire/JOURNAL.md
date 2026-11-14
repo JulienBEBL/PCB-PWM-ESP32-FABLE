@@ -40,4 +40,16 @@
 - Import vers le PCB lancé : attend le clic « Apply » de Julien.
 - Push toujours refusé (PO-06) : commits locaux.
 
+**Fin de session (phases 5 à 9)**
+
+- Plan Espressif fourni par Julien : entraxe officiel 22,86 mm (PO-01 mis à jour).
+- Import PCB appliqué par Julien (clic « Apply »). Contour, trous, 4 couches, placement contrôlé hors ligne puis appliqué (DEC-016).
+- Règles, bande d'isolement de 3 mm, pistes de bobine, points de test (DEC-017, DEC-018).
+- Routage : autorouteur par lots, vias de masse par script, 6 liaisons reprises (DEC-019). DRC 0 erreur ; isolement 2,34 mm.
+- Sérigraphie : contour de la carte de dev, légendes.
+- Exports : Gerber, BOM, CPL ; contrôle de cohérence 0 écart.
+- Revue finale : R303 passée à 1 kΩ (DEC-020), modifiée en place. Piège : la copie des attributs d'un autre composant a aussi copié son « Channel ID », d'où une « Netlist Error » au DRC ; corrigé en rétablissant l'identifiant.
+- Stock relevé une seconde fois : 45 / 45 disponibles.
+- Rapports : `REVUE_FINALE.md`, `LIVRAISON.md`.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

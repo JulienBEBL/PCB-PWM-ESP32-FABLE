@@ -1,58 +1,59 @@
 # État du projet
 
-**Dernière mise à jour :** 2026-11-14 (session 01, fin de la phase 4)
+**Dernière mise à jour :** 2026-11-14 (session 01, fin de la phase 9)
 
-**Échéance :** exports prêts dimanche 15 novembre 2026 au soir. Commande JLCPCB lundi 16. Si le routage n'est pas engagé dimanche midi : prévenir Julien avec une estimation.
+**Échéance :** commande JLCPCB lundi 16 novembre 2026. **Les exports sont prêts** (samedi 14).
 
 ## Phases
 
 | Phase | Contenu | Statut |
 |---|---|---|
-| 0 | Lecture des anciens dépôts, questions à Julien | **Terminée** (DEC-005) |
-| 1 | Tests de l'API | **Terminée** : `hardware/rapports/RAPPORT_PHASE_1_API.md` |
-| 2 | Exigences et architecture | **Terminée** : `docs/exigences/`, `docs/architecture/` |
-| 3 | Composants | **Terminée** : `hardware/bom/BOM.md` (stock relevé le 2026-11-14) |
-| 4 | Schéma, ERC, contrôle de netlist | **Terminée** : 0 écart, ERC 0 / 0 (`hardware/rapports/RAPPORT_PHASES_2_3_4.md`) |
-| 5 | Import PCB, contour, placement | **En cours** : `importChanges` lancé, **attend le clic « Apply » de Julien** dans EasyEDA |
-| 6 | Routage, plans, DRC | À faire |
-| 7 | Exports Gerber, BOM, CPL | À faire |
-| 8 | Revue finale | À faire (PO-08, PO-09, PO-10 à traiter) |
-| 9 | Rapport de livraison | À faire |
+| 0 | Lecture des anciens dépôts, questions à Julien | Terminée (DEC-005) |
+| 1 | Tests de l'API | Terminée : `hardware/rapports/RAPPORT_PHASE_1_API.md` |
+| 2, 3, 4 | Exigences, architecture, composants, schéma | Terminées : `hardware/rapports/RAPPORT_PHASES_2_3_4.md` |
+| 5, 6 | Import, placement, routage | Terminées : `hardware/rapports/RAPPORT_PHASES_5_6_PCB.md` |
+| 7 | Exports Gerber, BOM, CPL | Terminée : `hardware/exports/` |
+| 8 | Revue finale | Terminée : `hardware/rapports/REVUE_FINALE.md` (0 bloquant) |
+| 9 | Rapport de livraison | Terminée : `hardware/rapports/LIVRAISON.md` |
 
 ## État d'EasyEDA
 
-Projet `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`). Schematic1 : 10 pages, 136 composants. PCB1 (`5457367f86d6a6ce`) : vide tant que l'import n'est pas appliqué.
+Projet `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`), enregistré.
 
-| Page | uuid |
+| Élément | État |
 |---|---|
-| 01_ALIM_5V_3V3 | `23891438148d8911` |
-| 02_ESP32_DEVKIT | `0b70001258193e30` |
-| 03_ENTREE_PWM | `9e3e9cc2c1aa5c3e` |
-| 04_FINS_DE_COURSE | `cf79095e8e4cc8c3` |
-| 05_EXTENSION | `54a4ef5528ca2c5c` |
-| 06_RELAIS_K1_POMPE | `d18f0af72a4cec22` |
-| 07_RELAIS_K2_WATCHDOG | `8e6b3fefa807e9ce` |
-| 08_IHM_STATUS | `f472b8bb88dc5069` |
-| 09_PUISSANCE_12V_ENTREE | `f974eef09e9da1fa` |
-| 10_VERIN_OPTOS | `8c889d2021e11d54` |
+| Schematic1 | 10 pages, 136 composants. Netlist = cible (0 écart). ERC 0 / 0 |
+| PCB1 (`5457367f86d6a6ce`) | 120 × 80 mm, 4 couches, 136 composants en face supérieure, 78 nets routés. DRC 0 erreur. Isolement 2,34 mm |
+| Dernière modification | R303 passée à 1 kΩ en place (schéma et PCB), sans nouvel import |
+
+Pages du schéma : 01_ALIM_5V_3V3 `23891438148d8911`, 02_ESP32_DEVKIT `0b70001258193e30`, 03_ENTREE_PWM `9e3e9cc2c1aa5c3e`, 04_FINS_DE_COURSE `cf79095e8e4cc8c3`, 05_EXTENSION `54a4ef5528ca2c5c`, 06_RELAIS_K1_POMPE `d18f0af72a4cec22`, 07_RELAIS_K2_WATCHDOG `8e6b3fefa807e9ce`, 08_IHM_STATUS `f472b8bb88dc5069`, 09_PUISSANCE_12V_ENTREE `f974eef09e9da1fa`, 10_VERIN_OPTOS `8c889d2021e11d54`.
+
+## Ce qui reste à Julien
+
+1. Relire `hardware/rapports/LIVRAISON.md` §4 (vérifications avant de payer) et `docs/memoire/DECISIONS.md`.
+2. Donner le droit de push (PO-06) : 6 commits sont locaux.
+3. Commander (options : `LIVRAISON.md` §5).
 
 ## Outils (hors dépôt, DEC-015)
 
-Dossier `C:\Users\throj\Documents\BEBL\FABLE_DRONE\_outils_fable\`. Lancer avec `node <script>`.
+Dossier `C:\Users\throj\Documents\BEBL\FABLE_DRONE\_outils_fable\`. Lancer avec `node <script>`. Chaque appel vérifie l'uuid du projet et le document actif.
 
 | Script | Rôle |
 |---|---|
-| `lib.mjs` | Appel du pont avec garde d'uuid (projet, document actif) |
-| `gen_netlist.mjs` | Écrit `docs/architecture/netlist_cible.json` (toute modification de netlist passe par lui) |
-| `layout.mjs`, `sch_place.mjs`, `sch_wire.mjs`, `sch_unwire.mjs` | Placement et câblage du schéma par page (`DRY=1` : contrôle géométrique seul) |
-| `sch_check.mjs` | Netlist exportée contre cible, barrière, ERC ; écrit `NETLIST_EXPORTEE.md` |
-| `sch_png.mjs` | Image d'une page (ou du PCB) dans `state/` |
-| `gen_bom.mjs` | BOM vérifiée |
-| `pcb_import.mjs` | Import schéma → PCB (`COUNT=1` : compte seulement) |
-| `state/` | Identifiants des composants et fils créés, images |
+| `lib.mjs` | Appel du pont avec gardes |
+| `gen_netlist.mjs` | Écrit `docs/architecture/netlist_cible.json` : **toute modification de netlist passe par lui** |
+| `layout.mjs`, `sch_place.mjs`, `sch_wire.mjs`, `sch_unwire.mjs` | Schéma par page (`DRY=1` : contrôle géométrique seul) |
+| `sch_check.mjs` | Netlist exportée contre cible, barrière, ERC |
+| `gen_bom.mjs` | `hardware/bom/BOM.md`, `BOM.csv` |
+| `placement.mjs`, `pcb_plan.mjs` | Plan de placement, contrôle hors ligne, application (`APPLY=1`) |
+| `pcb_setup.mjs`, `pcb_rules.mjs`, `pcb_prep.mjs`, `pcb_pours.mjs`, `pcb_silk.mjs` | Contour, règles, zones d'isolement, plans, sérigraphie |
+| `pcb_route.mjs`, `pcb_rip.mjs`, `pcb_fanout.mjs`, `pcb_line.mjs`, `pcb_link.mjs`, `pcb_block.mjs`, `pcb_width.mjs` | Routage et reprises contrôlées |
+| `pcb_drc.mjs`, `pcb_iso.mjs`, `pcb_cu.mjs` | DRC détaillé, isolement indépendant, relevé du cuivre |
+| `pcb_export.mjs`, `gen_jlc.mjs` | Exports (refuse si le DRC n'est pas vide), CSV JLCPCB et contrôle de cohérence |
+| `sch_png.mjs` | Image de la vue affichée |
 
-## Prochaine action
+## Si une modification est demandée
 
-1. Julien clique « Apply » sur la fenêtre d'import du PCB (ou la session relance `node pcb_import.mjs`).
-2. Phase 5 : contour 120 × 80 mm, 4 trous M3 à 4 mm des bords, 4 couches, placement (règles : `old/PCB_PWM_SECURISE_V3/hardware/PLACEMENT_CIBLE.md`, STM32 DEC-068 à DEC-077 ; carte de dev à gauche, USB au bord gauche).
-3. Phase 6 : routage par l'API (`pcb_Document.autoRouting` par lots de nets, pièges : `old/PCB_PWM_SECURISE_V3/hardware/rapports/BRIEF_ROUTAGE.md` §8).
+1. Modifier `gen_netlist.mjs`, régénérer, modifier le schéma, relancer `sch_check.mjs` (0 écart attendu).
+2. Un changement de composant ou de net demande un import vers le PCB : `pcb_import.mjs`, puis **clic « Apply » de Julien**. Les composants touchés peuvent sortir de la carte : réappliquer `pcb_plan.mjs`.
+3. Re-router les nets touchés (`pcb_rip.mjs`, `pcb_route.mjs`), puis `pcb_drc.mjs`, `pcb_iso.mjs`, `pcb_export.mjs`, `gen_jlc.mjs`.
