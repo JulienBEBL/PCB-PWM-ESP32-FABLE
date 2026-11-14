@@ -1,0 +1,4 @@
+import { run } from './eda.mjs';
+import fs from 'fs';
+const r = await run(`await eda.dmt_EditorControl.activateDocument("9e5b12b9217a84a5@b4788f45338c4e59bfcfdff2832a8063"); await new Promise(q => setTimeout(q, 1200)); const L = (await eda.pcb_PrimitiveLine.getAll()).filter(l => [1, 2, 15, 16].includes(l.getState_Layer())).map(l => [l.getState_Net(), l.getState_Layer(), l.getState_StartX(), l.getState_StartY(), l.getState_EndX(), l.getState_EndY(), l.getState_LineWidth()]); const V = (await eda.pcb_PrimitiveVia.getAll()).map(v => [v.getState_Net(), v.getState_X(), v.getState_Y(), v.getState_Diameter()]); const A = (await eda.pcb_PrimitiveArc ? (await eda.pcb_PrimitiveArc.getAll()).filter(a => [1, 2, 16].includes(a.getState_Layer())).length : 0); return JSON.stringify({L, V, A});`);
+fs.writeFileSync('cu2.json', JSON.stringify(r)); console.log('segments', r.L.length, 'vias', r.V.length, 'arcs', r.A);

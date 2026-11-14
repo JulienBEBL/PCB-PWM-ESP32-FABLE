@@ -1,0 +1,2 @@
+import { run } from './eda.mjs';
+export const activatePcb = () => run(`const t = (await eda.dmt_EditorControl.getSplitScreenTree()).tabs || []; const p = t.find(x => x.tabId.startsWith("9e5b12b9217a84a5")); if (p) await eda.dmt_EditorControl.activateDocument(p.tabId); else await eda.dmt_EditorControl.openDocument("9e5b12b9217a84a5"); await new Promise(r => setTimeout(r, 2500)); const d = await eda.dmt_SelectControl.getCurrentDocumentInfo(); return d.uuid === "9e5b12b9217a84a5" ? "OK" : "DOC_STOP " + d.uuid;`);

@@ -1,0 +1,24 @@
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Arduino / compilation
+build/
+*.o
+*.d
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+
+# EasyEDA Pro : sauvegardes automatiques
+*.bak
+*_backup*

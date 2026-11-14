@@ -1,0 +1,49 @@
+Broche;Nom;Net;Description
+1;PC13;FC_R2_NO;Entrée fin de course rentré 2 NO
+2;PC14;FC_R2_NC;Entrée fin de course rentré 2 NC
+3;PC15;FC_S2_NO;Entrée fin de course sorti 2 NO
+4;VBAT;+3V3;Alimentation
+5;VREF+;+3V3;Référence ADC
+6;VDD;+3V3;Alimentation
+7;VSS;GND;Masse
+8;PF0-OSC_IN;OSC_IN;Quartz HSE (monté)
+9;PF1-OSC_OUT;OSC_OUT;Quartz HSE (monté)
+10;PF2-NRST;NRST;Reset
+11;PA0;I_MON;X05 courant vérin (ADC1_IN0) — échange DEC-078
+12;PA1;K2_FB;Relecture relais K2 — DEC-079 (port A, K1_FB sur port B)
+13;PA2;UART2_TX;USART2 TX vers J10 (atelier)
+14;PA3;UART2_RX;USART2 RX depuis J10 (atelier)
+15;PA4;EXT_IN1;Capteur extension 1 (ADC1_IN4)
+16;PA5;EXT_IN2;Capteur extension 2 (ADC1_IN5)
+17;PA6;EXT_IN3;Capteur extension 3 (ADC1_IN6)
+18;PA7;EXT_IN4;Capteur extension 4 (ADC1_IN7)
+19;PB0;V5_MON;X01 mesure 5 V (ADC1_IN8)
+20;PB1;ARM_FB;Relecture cavalier — DEC-079
+21;PB2;K2_CMD;Commande relais K2 — échange DEC-078 (port B, R5 respectée)
+22;PB10;MAINT_IN;X03 mode maintenance
+23;PB11;V12_OK;Présence 12 V (opto)
+24;PB12;BOARD_ID;X04 révision carte (ADC1_IN16)
+25;PB13;NC;Libre, entrée uniquement (broche bootloader)
+26;PB14;STOP_HW_FB;Relecture arrêt matériel
+27;PB15;LED2;LED 2 (UCPD1_CC2)
+28;PA8;LED1;LED 1 (UCPD1_CC1)
+29;PA9;UART_TX;USART1 TX bootloader, vers pont USB U13
+30;PC6;PWM_IN;TIM3_CH1 PWM input
+31;PC7;FC_S2_NC;Entrée fin de course sorti 2 NC
+32;PA10;UART_RX;USART1 RX bootloader, depuis pont USB U13
+33;PA11;STATUS_OUT;X02 état vers contrôleur externe
+34;PA12;WDT_KICK;Rafraîchissement watchdog externe
+35;PA13;SWDIO;SWD
+36;PA14-BOOT0;SWCLK;SWD et BOOT0
+37;PA15;K1_CMD;Commande relais K1 — échange DEC-078 (port A, R5 respectée)
+38;PD0;LED3;LED 3 (UCPD2_CC1)
+39;PD1;NC;Libre dernier recours (UCPD2_DBCC1)
+40;PD2;LED4;LED 4 (UCPD2_CC2)
+41;PD3;NC;Libre dernier recours (UCPD2_DBCC2)
+42;PB3;FC_R1_NO;Entrée fin de course rentré 1 NO
+43;PB4;FC_R1_NC;Entrée fin de course rentré 1 NC
+44;PB5;FC_S1_NO;Entrée fin de course sorti 1 NO
+45;PB6;FC_S1_NC;Entrée fin de course sorti 1 NC
+46;PB7;K1_FB;Relecture relais K1
+47;PB8;BUZZER;TIM16_CH1
+48;PB9;CP_DRV;TIM17_CH1 pompe de charge

@@ -1,0 +1,34 @@
+# Journal
+
+## Session 01 — 2026-11-14 (samedi)
+
+**Fait**
+
+- `git pull` sur les trois dépôts (à jour). Copie figée des deux anciens dépôts dans `old/` (DEC-002).
+- Pont EasyEDA vérifié (port 49620). Projet actif `FABLE52_PCB_ESP32`, uuid `836928ac4399433ab9cd56636d997eda` (DEC-001).
+- Lecture des anciens dépôts : mémoire, BOM, netlist, brochage v3, alimentation, consignes C1 à C10 et S1 à S15, STM32 PO-38, rapports de placement et de routage.
+- Phase 1 : tests de l'API sur une page `ESSAI`, supprimée ensuite. Tout fonctionne ; l'export de netlist par `sch_ManufactureData.getNetlistFile()` fonctionne (DEC-004).
+
+**Contradictions et écarts relevés entre les sources**
+
+| N° | Constat | Traitement |
+|---|---|---|
+| E1 | Écart des rangées de la carte de dev : 25,40 mm (ESP32 PO-21, hypothèse) contre 22,86 mm (empreinte KiCad d'Espressif). | PO-01, question Q1 |
+| E2 | La liste des blocs de sécurité du prompt ne cite pas la pompe de charge (K1), le watchdog externe (K2) ni le 5e contact d'arrêt matériel (J6, U7), présents sur la carte STM32 et validés (ESP32 DEC-004). | Question Q3 ; défaut : conservés |
+| E3 | Connecteur d'extension J8 : 1×6 sur la carte STM32, 1×4 dans la netlist ESP32. | Question Q4 |
+| E4 | Dimensions : 120 × 80 mm sur la carte STM32 (STM32 DEC-072), non décidées pour l'ESP32 (ESP32 PO-10). | Question Q2 |
+| E5 | Dates des anciens dépôts (commande le 14 novembre, ESP32 PO-11) : périmées. | Prompt : commande le 16 novembre |
+| E6 | Les anciennes consignes imposent un arrêt à chaque jalon G1 à G5. | Prompt : autonomie complète, relecture à la fin |
+| E7 | Barrettes Dupont J13 à J15 (STM32 DEC-071) : non citées dans le prompt, contraires à « aucune fonction superflue ». | Question Q5 |
+
+**Questions posées à Julien (PO-02)** — défaut entre parenthèses
+
+- Q1. Carte de dev reçue ? Si oui : écart mesuré entre les rangées, version (v1.0 / v1.1). (Non reçue : empreinte à 3 rangées 22,86 + 25,40 mm.)
+- Q2. Format : 120 × 80 mm, 4 trous M3 et connecteurs aux mêmes places que la carte STM32 ; USB de la carte de dev vers le petit côté gauche. (Oui ; carte allongée si nécessaire, signalé.)
+- Q3. Blocs conservés bien que non cités : pompe de charge, watchdog externe, 5e contact (J6 + opto), sortie STATUS, mesure du 5 V, LED « 3,3 V présent », points de test. (Tous conservés.)
+- Q4. J8 extension : 1×6 au brochage STM32, broches des voies 3 et 4 non connectées. (Oui.)
+- Q5. Barrettes Dupont J13 à J15 en parallèle des borniers. (Supprimées.)
+- Q6. Composants CMS bas autorisés sous la carte de dev. (Oui, passifs seulement.)
+- Q7. Disponibilité de Julien pour le clic « Apply » de l'import PCB (samedi soir ou dimanche matin).
+
+**Prochaine session :** voir `ETAT_PROJET.md`.

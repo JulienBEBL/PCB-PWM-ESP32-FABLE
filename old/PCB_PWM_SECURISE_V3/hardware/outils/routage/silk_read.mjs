@@ -1,0 +1,5 @@
+import { run } from './eda.mjs';
+import fs from 'fs';
+const r = await run(`const comps = await eda.pcb_PrimitiveComponent.getAll(); const out = []; for (const c of comps.slice(0, 400)) { const id = c.getState_PrimitiveId(); const at = await eda.pcb_PrimitiveAttribute.getAll(id); for (const a of at) { const o = JSON.parse(JSON.stringify(a)); if (!(o.keyVisible || o.valueVisible)) continue; const b = await eda.pcb_Primitive.getPrimitivesBBox([o.primitiveId]); out.push({ref: c.getState_Designator(), id: o.primitiveId, key: o.key, value: o.value, layer: o.layer, x: o.x, y: o.y, rot: o.rotation, size: o.fontSize, lw: o.lineWidth, align: o.alignMode, kv: o.keyVisible, vv: o.valueVisible, b: b ? [b.minX, b.minY, b.maxX, b.maxY] : null}); } } return JSON.stringify(out);`);
+fs.writeFileSync('silk.json', JSON.stringify(r));
+console.log('attributs visibles', r.length); const k = {}; for (const a of r) k[a.key + '/L' + a.layer] = (k[a.key + '/L' + a.layer] || 0) + 1; console.log(JSON.stringify(k)); console.log(JSON.stringify(r.slice(0, 3)));
