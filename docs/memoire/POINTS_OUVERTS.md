@@ -11,6 +11,7 @@ Un point clos reste listé avec sa résolution. **Criticité :** B = bloque la c
 | PO-03 | 2026-11-14 | Diodes de la carte de dev entre l'USB et la broche 5V (ESP32 PO-18) : à lire sur le schéma Espressif en phase 2 ; test au multimètre par Julien à réception. | C | Diode idéale entre le +5V de la carte et la broche 5V de la carte de dev (reprise ESP32 DEC-026) | Claude, Julien |
 | PO-04 | 2026-11-14 | Courant minimal des fins de course (STM32 PO-23, jamais clos) : fixe la valeur des rappels. | M | 1 kΩ au +3V3, soit 3,3 mA (reprise ESP32 netlist) | Julien |
 | PO-05 | 2026-11-14 | Barrettes femelles 1×22 : pose par JLCPCB (traversant) à confirmer en phase 3. | C | Sinon soudées à la main, signalé | Claude |
+| PO-06 | 2026-11-14 | **Push refusé (403).** Le poste est connecté à GitHub avec le compte `Jujuxw9`, qui n'a que le droit de lecture sur `JulienBEBL/PCB-PWM-ESP32-FABLE` (`gh api` : `push: false`). Les commits restent locaux. | C | Commits locaux à chaque phase ; push dès que le droit est donné | Julien (ajouter `Jujuxw9` comme collaborateur en écriture, ou connecter `gh` au compte `JulienBEBL`) |
 
 ## Clos
 
