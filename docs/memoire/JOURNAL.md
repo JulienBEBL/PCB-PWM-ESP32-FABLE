@@ -31,4 +31,13 @@
 - Q6. Composants CMS bas autorisés sous la carte de dev. (Oui, passifs seulement.)
 - Q7. Disponibilité de Julien pour le clic « Apply » de l'import PCB (samedi soir ou dimanche matin).
 
+**Suite de la session (après les réponses de Julien, DEC-005)**
+
+- Guide Espressif relu : brochage des rangées confirmé ; variante N8 en fin de vie → brochage v4 sans GPIO35 à 37 (DEC-007).
+- Stock JLCPCB relevé pour les 46 références. TPS3430 et EL357N en rupture → STWD100YNX (DEC-008), LTV-357T-C (DEC-009).
+- Netlist cible écrite en JSON (`docs/architecture/netlist_cible.json`) : 136 composants, 78 nets.
+- Schéma saisi par script : 10 pages. Premier câblage : nets fusionnés par des fils en contact, détectés par le contrôle de netlist ; corrigé (contrôle géométrique, pages scindées). Résultat : 0 écart, ERC 0 erreur 0 avertissement.
+- Import vers le PCB lancé : attend le clic « Apply » de Julien.
+- Push toujours refusé (PO-06) : commits locaux.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

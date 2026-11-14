@@ -1,0 +1,1670 @@
+{
+ "version": "v1 2026-11-14",
+ "pages": {
+  "P1": "01_ALIM_5V_3V3",
+  "P2": "02_ESP32_DEVKIT",
+  "P3": "03_ENTREE_PWM",
+  "P4": "04_FINS_DE_COURSE",
+  "P5": "05_EXTENSION",
+  "P6": "06_RELAIS_K1_POMPE",
+  "P9": "07_RELAIS_K2_WATCHDOG",
+  "P7": "08_IHM_STATUS",
+  "P8": "09_PUISSANCE_12V_ENTREE",
+  "P10": "10_VERIN_OPTOS"
+ },
+ "powerDomainNets": [
+  "GND_P",
+  "+12V_IN",
+  "+12V_F",
+  "+12V_P",
+  "LM_EN",
+  "LM_VCAP",
+  "LM_GATE",
+  "LM_SRC",
+  "LM_OV",
+  "NO_FEED",
+  "VERIN_A",
+  "VERIN_B",
+  "U6_A",
+  "U7_A"
+ ],
+ "barrierComponents": [
+  "K1",
+  "K2",
+  "U6",
+  "U7"
+ ],
+ "components": [
+  {
+   "ref": "J1",
+   "lcsc": "C7245",
+   "val": "Bornier 4 pts 3,81",
+   "page": "P1",
+   "fn": "Controleur : 5 V, GND, PWM, STATUS",
+   "pins": {
+    "1": "+5V_IN",
+    "2": "GND",
+    "3": "PWM_EXT",
+    "4": "STATUS_EXT"
+   }
+  },
+  {
+   "ref": "F1",
+   "lcsc": "C883126",
+   "val": "PTC 0,5 A",
+   "page": "P1",
+   "fn": "Fusible rearmable 5 V",
+   "pins": {
+    "1": "+5V_IN",
+    "2": "+5V_F"
+   }
+  },
+  {
+   "ref": "D1",
+   "lcsc": "C113952",
+   "val": "SMAJ5.0A",
+   "page": "P1",
+   "fn": "TVS 5 V",
+   "pins": {
+    "1": "+5V_F",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C107",
+   "lcsc": "C15849",
+   "val": "1uF",
+   "page": "P1",
+   "fn": "Entree U15",
+   "pins": {
+    "1": "+5V_F",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U15",
+   "lcsc": "C2869734",
+   "val": "LM66100",
+   "page": "P1",
+   "fn": "Diode ideale entree J1 (CE = VOUT)",
+   "pins": {
+    "1": "+5V_F",
+    "2": "GND",
+    "3": "+5V",
+    "4": "NC",
+    "5": "GND",
+    "6": "+5V"
+   }
+  },
+  {
+   "ref": "C101",
+   "lcsc": "C15850",
+   "val": "10uF",
+   "page": "P1",
+   "fn": "Reservoir +5V",
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C102",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P1",
+   "fn": "Decouplage +5V",
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C109",
+   "lcsc": "C15849",
+   "val": "1uF",
+   "page": "P1",
+   "fn": "Entree U16",
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U16",
+   "lcsc": "C2869734",
+   "val": "LM66100",
+   "page": "P1",
+   "fn": "Diode ideale vers la broche 5V de la carte de dev",
+   "pins": {
+    "1": "+5V",
+    "2": "GND",
+    "3": "+5V_ESP",
+    "4": "NC",
+    "5": "GND",
+    "6": "+5V_ESP"
+   }
+  },
+  {
+   "ref": "C108",
+   "lcsc": "C15849",
+   "val": "1uF",
+   "page": "P1",
+   "fn": "Sortie U16",
+   "pins": {
+    "1": "+5V_ESP",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R102",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P1",
+   "fn": "Diviseur V5_MON",
+   "pins": {
+    "1": "+5V",
+    "2": "V5_MON"
+   }
+  },
+  {
+   "ref": "R103",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P1",
+   "fn": "Diviseur V5_MON",
+   "pins": {
+    "1": "V5_MON",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C106",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P1",
+   "fn": "Filtre V5_MON",
+   "pins": {
+    "1": "V5_MON",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C105",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P1",
+   "fn": "Decouplage +3V3 (pres de J20)",
+   "pins": {
+    "1": "+3V3",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R426",
+   "lcsc": "C23228",
+   "val": "680R",
+   "page": "P1",
+   "fn": "LED 3V3 present",
+   "pins": {
+    "1": "+3V3",
+    "2": "LED5_A"
+   }
+  },
+  {
+   "ref": "LED5",
+   "lcsc": "C84264",
+   "val": "LED verte",
+   "page": "P1",
+   "fn": "LED 3V3 present",
+   "pins": {
+    "1": "GND",
+    "2": "LED5_A"
+   }
+  },
+  {
+   "ref": "J20",
+   "lcsc": "C7499337",
+   "val": "Barrette F 1x22",
+   "page": "P2",
+   "fn": "Rangee J1 de la carte de dev (commune)",
+   "pins": {
+    "1": "+3V3",
+    "2": "+3V3",
+    "3": "NC",
+    "4": "EXT_IN1",
+    "5": "FC_S2_NC",
+    "6": "RGB_DATA",
+    "7": "STOP_HW_FB",
+    "8": "FC_S1_NO",
+    "9": "FC_S1_NC",
+    "10": "FC_S2_NO",
+    "11": "EXT_IN2",
+    "12": "STATUS_OUT",
+    "13": "V5_MON",
+    "14": "NC",
+    "15": "FC_R1_NC",
+    "16": "FC_R2_NO",
+    "17": "FC_R2_NC",
+    "18": "K2_FB",
+    "19": "BUZZER",
+    "20": "WDT_KICK",
+    "21": "+5V_ESP",
+    "22": "GND"
+   }
+  },
+  {
+   "ref": "J21",
+   "lcsc": "C7499337",
+   "val": "Barrette F 1x22",
+   "page": "P2",
+   "fn": "Rangee J3 de la carte de dev, ecart 25,40 mm",
+   "pins": {
+    "1": "GND",
+    "2": "NC",
+    "3": "NC",
+    "4": "PWM_IN",
+    "5": "FC_R1_NO",
+    "6": "CP_DRV",
+    "7": "ARM_FB",
+    "8": "K1_FB",
+    "9": "V12_OK",
+    "10": "NC",
+    "11": "NC",
+    "12": "NC",
+    "13": "NC",
+    "14": "NC",
+    "15": "NC",
+    "16": "NC",
+    "17": "K2_CMD",
+    "18": "K1_CMD",
+    "19": "NC",
+    "20": "NC",
+    "21": "GND",
+    "22": "GND"
+   }
+  },
+  {
+   "ref": "J22",
+   "lcsc": "C7499337",
+   "val": "Barrette F 1x22",
+   "page": "P2",
+   "fn": "Rangee J3 de la carte de dev, ecart 22,86 mm",
+   "pins": {
+    "1": "GND",
+    "2": "NC",
+    "3": "NC",
+    "4": "PWM_IN",
+    "5": "FC_R1_NO",
+    "6": "CP_DRV",
+    "7": "ARM_FB",
+    "8": "K1_FB",
+    "9": "V12_OK",
+    "10": "NC",
+    "11": "NC",
+    "12": "NC",
+    "13": "NC",
+    "14": "NC",
+    "15": "NC",
+    "16": "NC",
+    "17": "K2_CMD",
+    "18": "K1_CMD",
+    "19": "NC",
+    "20": "NC",
+    "21": "GND",
+    "22": "GND"
+   }
+  },
+  {
+   "ref": "D9",
+   "lcsc": "C85708",
+   "val": "ESD5Z5V0",
+   "page": "P3",
+   "fn": "ESD PWM",
+   "pins": {
+    "1": "PWM_EXT",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R301",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P3",
+   "fn": "Rappel bas PWM",
+   "pins": {
+    "1": "PWM_EXT",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R302",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P3",
+   "fn": "Serie PWM",
+   "pins": {
+    "1": "PWM_EXT",
+    "2": "PWM_F"
+   }
+  },
+  {
+   "ref": "C301",
+   "lcsc": "C1588",
+   "val": "1nF",
+   "page": "P3",
+   "fn": "Filtre PWM",
+   "pins": {
+    "1": "PWM_F",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U3",
+   "lcsc": "C7836",
+   "val": "SN74LVC1G17",
+   "page": "P3",
+   "fn": "Trigger de Schmitt",
+   "pins": {
+    "1": "NC",
+    "2": "PWM_F",
+    "3": "GND",
+    "4": "PWM_BUF",
+    "5": "+3V3"
+   }
+  },
+  {
+   "ref": "C302",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P3",
+   "fn": "Decouplage U3",
+   "pins": {
+    "1": "+3V3",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R303",
+   "lcsc": "C23140",
+   "val": "33R",
+   "page": "P3",
+   "fn": "Sortie U3",
+   "pins": {
+    "1": "PWM_BUF",
+    "2": "PWM_IN"
+   }
+  },
+  {
+   "ref": "J4",
+   "lcsc": "C7246",
+   "val": "Bornier 6 pts 3,81",
+   "page": "P4",
+   "fn": "FC rentre",
+   "pins": {
+    "1": "GND",
+    "2": "FCX_R1_NO",
+    "3": "FCX_R1_NC",
+    "4": "GND",
+    "5": "FCX_R2_NO",
+    "6": "FCX_R2_NC"
+   }
+  },
+  {
+   "ref": "J5",
+   "lcsc": "C24525",
+   "val": "Bornier 7 pts 3,81",
+   "page": "P4",
+   "fn": "FC sorti",
+   "pins": {
+    "1": "GND",
+    "2": "FCX_S1_NO",
+    "3": "FCX_S1_NC",
+    "4": "GND",
+    "5": "FCX_S2_NO",
+    "6": "FCX_S2_NC",
+    "7": "NC"
+   }
+  },
+  {
+   "ref": "U11",
+   "lcsc": "C85364",
+   "val": "SRV05-4",
+   "page": "P4",
+   "fn": "ESD FC rentre",
+   "pins": {
+    "1": "FCX_R1_NO",
+    "2": "GND",
+    "3": "FCX_R1_NC",
+    "4": "FCX_R2_NO",
+    "5": "+3V3",
+    "6": "FCX_R2_NC"
+   }
+  },
+  {
+   "ref": "U12",
+   "lcsc": "C85364",
+   "val": "SRV05-4",
+   "page": "P4",
+   "fn": "ESD FC sorti",
+   "pins": {
+    "1": "FCX_S1_NO",
+    "2": "GND",
+    "3": "FCX_S1_NC",
+    "4": "FCX_S2_NO",
+    "5": "+3V3",
+    "6": "FCX_S2_NC"
+   }
+  },
+  {
+   "ref": "R311",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC R1_NO",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_R1_NO"
+   }
+  },
+  {
+   "ref": "R321",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC R1_NO",
+   "pins": {
+    "1": "FCX_R1_NO",
+    "2": "FC_R1_NO"
+   }
+  },
+  {
+   "ref": "C311",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC R1_NO",
+   "pins": {
+    "1": "FC_R1_NO",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R312",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC R1_NC",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_R1_NC"
+   }
+  },
+  {
+   "ref": "R322",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC R1_NC",
+   "pins": {
+    "1": "FCX_R1_NC",
+    "2": "FC_R1_NC"
+   }
+  },
+  {
+   "ref": "C312",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC R1_NC",
+   "pins": {
+    "1": "FC_R1_NC",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R313",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC R2_NO",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_R2_NO"
+   }
+  },
+  {
+   "ref": "R323",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC R2_NO",
+   "pins": {
+    "1": "FCX_R2_NO",
+    "2": "FC_R2_NO"
+   }
+  },
+  {
+   "ref": "C313",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC R2_NO",
+   "pins": {
+    "1": "FC_R2_NO",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R314",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC R2_NC",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_R2_NC"
+   }
+  },
+  {
+   "ref": "R324",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC R2_NC",
+   "pins": {
+    "1": "FCX_R2_NC",
+    "2": "FC_R2_NC"
+   }
+  },
+  {
+   "ref": "C314",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC R2_NC",
+   "pins": {
+    "1": "FC_R2_NC",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R315",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC S1_NO",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_S1_NO"
+   }
+  },
+  {
+   "ref": "R325",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC S1_NO",
+   "pins": {
+    "1": "FCX_S1_NO",
+    "2": "FC_S1_NO"
+   }
+  },
+  {
+   "ref": "C315",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC S1_NO",
+   "pins": {
+    "1": "FC_S1_NO",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R316",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC S1_NC",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_S1_NC"
+   }
+  },
+  {
+   "ref": "R326",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC S1_NC",
+   "pins": {
+    "1": "FCX_S1_NC",
+    "2": "FC_S1_NC"
+   }
+  },
+  {
+   "ref": "C316",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC S1_NC",
+   "pins": {
+    "1": "FC_S1_NC",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R317",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC S2_NO",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_S2_NO"
+   }
+  },
+  {
+   "ref": "R327",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC S2_NO",
+   "pins": {
+    "1": "FCX_S2_NO",
+    "2": "FC_S2_NO"
+   }
+  },
+  {
+   "ref": "C317",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC S2_NO",
+   "pins": {
+    "1": "FC_S2_NO",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R318",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Rappel FC S2_NC",
+   "pins": {
+    "1": "+3V3",
+    "2": "FCX_S2_NC"
+   }
+  },
+  {
+   "ref": "R328",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P4",
+   "fn": "Serie FC S2_NC",
+   "pins": {
+    "1": "FCX_S2_NC",
+    "2": "FC_S2_NC"
+   }
+  },
+  {
+   "ref": "C318",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P4",
+   "fn": "Filtre FC S2_NC",
+   "pins": {
+    "1": "FC_S2_NC",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "J8",
+   "lcsc": "C492403",
+   "val": "Barrette M 1x4",
+   "page": "P5",
+   "fn": "Extension",
+   "pins": {
+    "1": "+3V3_EXT",
+    "2": "EXTX_1",
+    "3": "EXTX_2",
+    "4": "GND"
+   }
+  },
+  {
+   "ref": "R331",
+   "lcsc": "C21189",
+   "val": "0R",
+   "page": "P5",
+   "fn": "Alimentation extension",
+   "pins": {
+    "1": "+3V3",
+    "2": "+3V3_EXT"
+   }
+  },
+  {
+   "ref": "D11",
+   "lcsc": "C85708",
+   "val": "ESD5Z5V0",
+   "page": "P5",
+   "fn": "ESD EXT1",
+   "pins": {
+    "1": "EXTX_1",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "D12",
+   "lcsc": "C85708",
+   "val": "ESD5Z5V0",
+   "page": "P5",
+   "fn": "ESD EXT2",
+   "pins": {
+    "1": "EXTX_2",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R332",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P5",
+   "fn": "Serie EXT1",
+   "pins": {
+    "1": "EXTX_1",
+    "2": "EXT_IN1"
+   }
+  },
+  {
+   "ref": "R333",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P5",
+   "fn": "Serie EXT2",
+   "pins": {
+    "1": "EXTX_2",
+    "2": "EXT_IN2"
+   }
+  },
+  {
+   "ref": "C331",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P5",
+   "fn": "Filtre EXT1",
+   "pins": {
+    "1": "EXT_IN1",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C332",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P5",
+   "fn": "Filtre EXT2",
+   "pins": {
+    "1": "EXT_IN2",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "K1",
+   "lcsc": "C47190",
+   "val": "G6K-2F-Y DC5",
+   "page": "P6",
+   "fn": "Relais K1",
+   "pins": {
+    "1": "+5V",
+    "2": "NC",
+    "3": "GND",
+    "4": "K1_FBX",
+    "5": "NO_FEED",
+    "6": "VERIN_A",
+    "7": "GND_P",
+    "8": "K1_COIL_N"
+   }
+  },
+  {
+   "ref": "D4",
+   "lcsc": "C81598",
+   "val": "1N4148W",
+   "page": "P6",
+   "fn": "Roue libre K1",
+   "pins": {
+    "1": "+5V",
+    "2": "K1_COIL_N"
+   }
+  },
+  {
+   "ref": "Q3",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P6",
+   "fn": "Validation pompe de charge",
+   "pins": {
+    "1": "CP_OUT",
+    "2": "K1_MID",
+    "3": "K1_COIL_N"
+   }
+  },
+  {
+   "ref": "Q4",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P6",
+   "fn": "Commande K1",
+   "pins": {
+    "1": "K1_G",
+    "2": "GND",
+    "3": "K1_MID"
+   }
+  },
+  {
+   "ref": "R401",
+   "lcsc": "C22775",
+   "val": "100R",
+   "page": "P6",
+   "fn": "Serie grille Q4",
+   "pins": {
+    "1": "K1_CMD",
+    "2": "K1_G"
+   }
+  },
+  {
+   "ref": "R402",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P6",
+   "fn": "Rappel bas K1_CMD",
+   "pins": {
+    "1": "K1_G",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C401",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P6",
+   "fn": "Pompe de charge",
+   "pins": {
+    "1": "CP_DRV",
+    "2": "CP_A"
+   }
+  },
+  {
+   "ref": "D7",
+   "lcsc": "C47546",
+   "val": "BAT54S",
+   "page": "P6",
+   "fn": "Pompe de charge",
+   "pins": {
+    "1": "GND",
+    "2": "CP_OUT",
+    "3": "CP_A"
+   }
+  },
+  {
+   "ref": "C402",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P6",
+   "fn": "Reservoir pompe",
+   "pins": {
+    "1": "CP_OUT",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R403",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P6",
+   "fn": "Purge pompe (10 ms)",
+   "pins": {
+    "1": "CP_OUT",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R404",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P6",
+   "fn": "Rappel relecture K1",
+   "pins": {
+    "1": "+3V3",
+    "2": "K1_FBX"
+   }
+  },
+  {
+   "ref": "R405",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P6",
+   "fn": "Serie relecture K1",
+   "pins": {
+    "1": "K1_FBX",
+    "2": "K1_FB"
+   }
+  },
+  {
+   "ref": "C403",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P6",
+   "fn": "Filtre relecture K1",
+   "pins": {
+    "1": "K1_FB",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "J7",
+   "lcsc": "C8377",
+   "val": "Bornier 3 pts 5,08",
+   "page": "P9",
+   "fn": "Armement (pont 1-3)",
+   "pins": {
+    "1": "+5V",
+    "2": "NC",
+    "3": "K2_ARM"
+   }
+  },
+  {
+   "ref": "K2",
+   "lcsc": "C47190",
+   "val": "G6K-2F-Y DC5",
+   "page": "P9",
+   "fn": "Relais K2",
+   "pins": {
+    "1": "K2_ARM",
+    "2": "NC",
+    "3": "GND",
+    "4": "K2_FBX",
+    "5": "GND_P",
+    "6": "VERIN_B",
+    "7": "+12V_P",
+    "8": "K2_COIL_N"
+   }
+  },
+  {
+   "ref": "D5",
+   "lcsc": "C81598",
+   "val": "1N4148W",
+   "page": "P9",
+   "fn": "Roue libre K2",
+   "pins": {
+    "1": "K2_ARM",
+    "2": "K2_COIL_N"
+   }
+  },
+  {
+   "ref": "Q5",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P9",
+   "fn": "Validation watchdog",
+   "pins": {
+    "1": "WD_OK",
+    "2": "K2_MID",
+    "3": "K2_COIL_N"
+   }
+  },
+  {
+   "ref": "Q6",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P9",
+   "fn": "Commande K2",
+   "pins": {
+    "1": "K2_G",
+    "2": "GND",
+    "3": "K2_MID"
+   }
+  },
+  {
+   "ref": "R406",
+   "lcsc": "C22775",
+   "val": "100R",
+   "page": "P9",
+   "fn": "Serie grille Q6",
+   "pins": {
+    "1": "K2_CMD",
+    "2": "K2_G"
+   }
+  },
+  {
+   "ref": "R407",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P9",
+   "fn": "Rappel bas K2_CMD",
+   "pins": {
+    "1": "K2_G",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U4",
+   "lcsc": "C1354132",
+   "val": "STWD100YNX",
+   "page": "P9",
+   "fn": "Watchdog externe 102 ms",
+   "pins": {
+    "1": "WD_OK",
+    "2": "GND",
+    "3": "GND",
+    "4": "WDT_KICK",
+    "5": "+3V3"
+   }
+  },
+  {
+   "ref": "C404",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P9",
+   "fn": "Decouplage U4",
+   "pins": {
+    "1": "+3V3",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R408",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P9",
+   "fn": "Rappel bas WDI",
+   "pins": {
+    "1": "WDT_KICK",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R409",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P9",
+   "fn": "Rappel haut WDO",
+   "pins": {
+    "1": "+3V3",
+    "2": "WD_OK"
+   }
+  },
+  {
+   "ref": "R412",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P9",
+   "fn": "Diviseur ARM_FB",
+   "pins": {
+    "1": "K2_ARM",
+    "2": "ARM_FB"
+   }
+  },
+  {
+   "ref": "R413",
+   "lcsc": "C22809",
+   "val": "15k",
+   "page": "P9",
+   "fn": "Diviseur ARM_FB",
+   "pins": {
+    "1": "ARM_FB",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C405",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P9",
+   "fn": "Filtre ARM_FB",
+   "pins": {
+    "1": "ARM_FB",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R414",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P9",
+   "fn": "Rappel relecture K2",
+   "pins": {
+    "1": "+3V3",
+    "2": "K2_FBX"
+   }
+  },
+  {
+   "ref": "R415",
+   "lcsc": "C21190",
+   "val": "1k",
+   "page": "P9",
+   "fn": "Serie relecture K2",
+   "pins": {
+    "1": "K2_FBX",
+    "2": "K2_FB"
+   }
+  },
+  {
+   "ref": "C406",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P9",
+   "fn": "Filtre relecture K2",
+   "pins": {
+    "1": "K2_FB",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "Q2",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P7",
+   "fn": "Sortie STATUS drain ouvert",
+   "pins": {
+    "1": "Q2_G",
+    "2": "GND",
+    "3": "STATUS_D"
+   }
+  },
+  {
+   "ref": "R416",
+   "lcsc": "C22775",
+   "val": "100R",
+   "page": "P7",
+   "fn": "Serie grille Q2",
+   "pins": {
+    "1": "STATUS_OUT",
+    "2": "Q2_G"
+   }
+  },
+  {
+   "ref": "R417",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P7",
+   "fn": "Rappel bas Q2",
+   "pins": {
+    "1": "Q2_G",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R418",
+   "lcsc": "C22775",
+   "val": "100R",
+   "page": "P7",
+   "fn": "Serie sortie STATUS",
+   "pins": {
+    "1": "STATUS_D",
+    "2": "STATUS_EXT"
+   }
+  },
+  {
+   "ref": "D10",
+   "lcsc": "C85708",
+   "val": "ESD5Z5V0",
+   "page": "P7",
+   "fn": "ESD STATUS",
+   "pins": {
+    "1": "STATUS_EXT",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R420",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P7",
+   "fn": "Rappel bas RGB_DATA",
+   "pins": {
+    "1": "RGB_DATA",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U17",
+   "lcsc": "C7484",
+   "val": "SN74AHCT1G125",
+   "page": "P7",
+   "fn": "Adaptateur 3,3 V vers 5 V",
+   "pins": {
+    "1": "GND",
+    "2": "RGB_DATA",
+    "3": "GND",
+    "4": "RGB_Y",
+    "5": "+5V"
+   }
+  },
+  {
+   "ref": "C420",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P7",
+   "fn": "Decouplage U17",
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "R421",
+   "lcsc": "C23138",
+   "val": "330R",
+   "page": "P7",
+   "fn": "Serie DIN",
+   "pins": {
+    "1": "RGB_Y",
+    "2": "RGB_DIN"
+   }
+  },
+  {
+   "ref": "LED1",
+   "lcsc": "C114586",
+   "val": "WS2812B",
+   "page": "P7",
+   "fn": "LED RGB adressable",
+   "pins": {
+    "1": "+5V",
+    "2": "NC",
+    "3": "GND",
+    "4": "RGB_DIN"
+   }
+  },
+  {
+   "ref": "C421",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P7",
+   "fn": "Decouplage LED1",
+   "pins": {
+    "1": "+5V",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "LS1",
+   "lcsc": "C94599",
+   "val": "MLT-8530",
+   "page": "P7",
+   "fn": "Buzzer passif",
+   "pins": {
+    "1": "+3V3",
+    "2": "BUZ_N",
+    "3": "BUZ_N",
+    "4": "BUZ_N"
+   }
+  },
+  {
+   "ref": "D6",
+   "lcsc": "C81598",
+   "val": "1N4148W",
+   "page": "P7",
+   "fn": "Roue libre buzzer",
+   "pins": {
+    "1": "+3V3",
+    "2": "BUZ_N"
+   }
+  },
+  {
+   "ref": "Q7",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P7",
+   "fn": "Commande buzzer",
+   "pins": {
+    "1": "BUZ_G",
+    "2": "GND",
+    "3": "BUZ_N"
+   }
+  },
+  {
+   "ref": "R424",
+   "lcsc": "C22775",
+   "val": "100R",
+   "page": "P7",
+   "fn": "Serie grille Q7",
+   "pins": {
+    "1": "BUZZER",
+    "2": "BUZ_G"
+   }
+  },
+  {
+   "ref": "R425",
+   "lcsc": "C25803",
+   "val": "100k",
+   "page": "P7",
+   "fn": "Rappel bas Q7",
+   "pins": {
+    "1": "BUZ_G",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "C407",
+   "lcsc": "C15850",
+   "val": "10uF",
+   "page": "P7",
+   "fn": "Reservoir buzzer",
+   "pins": {
+    "1": "+3V3",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "J2",
+   "lcsc": "C3697",
+   "val": "Bornier 2 pts 5,08",
+   "page": "P8",
+   "fn": "Entree 12 V",
+   "pins": {
+    "1": "+12V_IN",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "F2",
+   "lcsc": "C883126",
+   "val": "PTC 0,5 A",
+   "page": "P8",
+   "fn": "Fusible rearmable 12 V",
+   "pins": {
+    "1": "+12V_IN",
+    "2": "+12V_F"
+   }
+  },
+  {
+   "ref": "D2",
+   "lcsc": "C152121",
+   "val": "SMAJ15A",
+   "page": "P8",
+   "fn": "TVS 12 V",
+   "pins": {
+    "1": "+12V_F",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "C502",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P8",
+   "fn": "Decouplage entree",
+   "pins": {
+    "1": "+12V_F",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "U5",
+   "lcsc": "C3236215",
+   "val": "LM74502",
+   "page": "P8",
+   "fn": "Protection inversion + surtension",
+   "pins": {
+    "1": "LM_EN",
+    "2": "GND_P",
+    "3": "NC",
+    "4": "LM_VCAP",
+    "5": "+12V_F",
+    "6": "LM_GATE",
+    "7": "LM_OV",
+    "8": "LM_SRC"
+   }
+  },
+  {
+   "ref": "R501",
+   "lcsc": "C21189",
+   "val": "0R",
+   "page": "P8",
+   "fn": "EN toujours actif",
+   "pins": {
+    "1": "+12V_F",
+    "2": "LM_EN"
+   }
+  },
+  {
+   "ref": "C501",
+   "lcsc": "C21120",
+   "val": "220nF",
+   "page": "P8",
+   "fn": "Pompe de charge U5",
+   "pins": {
+    "1": "LM_VCAP",
+    "2": "+12V_F"
+   }
+  },
+  {
+   "ref": "Q8",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P8",
+   "fn": "MOSFET cote entree",
+   "pins": {
+    "1": "LM_GATE",
+    "2": "LM_SRC",
+    "3": "+12V_F"
+   }
+  },
+  {
+   "ref": "Q9",
+   "lcsc": "C20917",
+   "val": "AO3400A",
+   "page": "P8",
+   "fn": "MOSFET cote sortie",
+   "pins": {
+    "1": "LM_GATE",
+    "2": "LM_SRC",
+    "3": "+12V_P"
+   }
+  },
+  {
+   "ref": "D8",
+   "lcsc": "C2103",
+   "val": "BZT52C10",
+   "page": "P8",
+   "fn": "Ecretage VGS",
+   "pins": {
+    "1": "LM_GATE",
+    "2": "LM_SRC"
+   }
+  },
+  {
+   "ref": "R502",
+   "lcsc": "C23267",
+   "val": "95.3k",
+   "page": "P8",
+   "fn": "Seuil surtension",
+   "pins": {
+    "1": "+12V_F",
+    "2": "LM_OV"
+   }
+  },
+  {
+   "ref": "R503",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P8",
+   "fn": "Seuil surtension",
+   "pins": {
+    "1": "LM_OV",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "C503",
+   "lcsc": "C15850",
+   "val": "10uF",
+   "page": "P8",
+   "fn": "Reservoir +12V_P",
+   "pins": {
+    "1": "+12V_P",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "C504",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P8",
+   "fn": "Decouplage +12V_P",
+   "pins": {
+    "1": "+12V_P",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "J6",
+   "lcsc": "C8406",
+   "val": "Bornier 3 pts 3,81",
+   "page": "P10",
+   "fn": "5e contact (arret materiel)",
+   "pins": {
+    "1": "+12V_P",
+    "2": "NC",
+    "3": "NO_FEED"
+   }
+  },
+  {
+   "ref": "D17",
+   "lcsc": "C152121",
+   "val": "SMAJ15A",
+   "page": "P10",
+   "fn": "TVS NO_FEED",
+   "pins": {
+    "1": "NO_FEED",
+    "2": "GND_P"
+   }
+  },
+  {
+   "ref": "J3",
+   "lcsc": "C8387",
+   "val": "Bornier 2 pts 3,81",
+   "page": "P10",
+   "fn": "Verin (1 = rouge)",
+   "pins": {
+    "1": "VERIN_A",
+    "2": "VERIN_B"
+   }
+  },
+  {
+   "ref": "C505",
+   "lcsc": "C14663",
+   "val": "100nF",
+   "page": "P10",
+   "fn": "Antiparasite moteur",
+   "pins": {
+    "1": "VERIN_A",
+    "2": "VERIN_B"
+   }
+  },
+  {
+   "ref": "D3",
+   "lcsc": "C151939",
+   "val": "SMAJ15CA",
+   "page": "P10",
+   "fn": "TVS bidirectionnelle verin",
+   "pins": {
+    "1": "VERIN_A",
+    "2": "VERIN_B"
+   }
+  },
+  {
+   "ref": "U6",
+   "lcsc": "C119091",
+   "val": "LTV-357T-C",
+   "page": "P10",
+   "fn": "Opto presence 12 V",
+   "pins": {
+    "1": "U6_A",
+    "2": "GND_P",
+    "3": "GND",
+    "4": "V12_OK"
+   }
+  },
+  {
+   "ref": "R505",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P10",
+   "fn": "LED opto U6",
+   "pins": {
+    "1": "+12V_P",
+    "2": "U6_A"
+   }
+  },
+  {
+   "ref": "R506",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P10",
+   "fn": "Rappel V12_OK",
+   "pins": {
+    "1": "+3V3",
+    "2": "V12_OK"
+   }
+  },
+  {
+   "ref": "C506",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P10",
+   "fn": "Filtre V12_OK",
+   "pins": {
+    "1": "V12_OK",
+    "2": "GND"
+   }
+  },
+  {
+   "ref": "U7",
+   "lcsc": "C119091",
+   "val": "LTV-357T-C",
+   "page": "P10",
+   "fn": "Opto arret materiel",
+   "pins": {
+    "1": "U7_A",
+    "2": "GND_P",
+    "3": "GND",
+    "4": "STOP_HW_FB"
+   }
+  },
+  {
+   "ref": "R507",
+   "lcsc": "C23162",
+   "val": "4.7k",
+   "page": "P10",
+   "fn": "LED opto U7",
+   "pins": {
+    "1": "NO_FEED",
+    "2": "U7_A"
+   }
+  },
+  {
+   "ref": "R508",
+   "lcsc": "C25804",
+   "val": "10k",
+   "page": "P10",
+   "fn": "Rappel STOP_HW_FB",
+   "pins": {
+    "1": "+3V3",
+    "2": "STOP_HW_FB"
+   }
+  },
+  {
+   "ref": "C507",
+   "lcsc": "C57112",
+   "val": "10nF",
+   "page": "P10",
+   "fn": "Filtre STOP_HW_FB",
+   "pins": {
+    "1": "STOP_HW_FB",
+    "2": "GND"
+   }
+  }
+ ]
+}
