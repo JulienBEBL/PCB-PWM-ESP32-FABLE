@@ -38,7 +38,7 @@ Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = qua
 | R413 | 1 | 15k | 0603WAF1502T5E | C22809 | Basic | CMS | 3075920 | 2680699 |  |
 | U17 | 1 | SN74AHCT1G125 | SN74AHCT1G125DBVR | C7484 | Extended | CMS | 32879 | 14928 |  |
 | R421 | 1 | 330R | 0603WAF3300T5E | C23138 | Basic | CMS | 2333311 | 1696861 |  |
-| LED1 | 1 | WS2812B | WS2812B-B/W | C114586 | Extended | CMS | 250241 | 249297 |  |
+| LED1 | 1 | WS2812B | XL-5050RGBC-2812B (XINGLIGHT) | C2843785 | Extended | CMS | 1200190 | 1139843 | DEC-021 : remplace C114586, retirée de l'assemblage JLCPCB (relevé du 2026-11-15) |
 | LS1 | 1 | MLT-8530 | MLT-8530 | C94599 | Extended | CMS | 126749 | 121906 |  |
 | J2 | 1 | Bornier 2 pts 5,08 | WJ2EDGRC-5.08-02P-14-00A | C3697 | Extended | Traversant | 69978 | 67400 |  |
 | D2, D17 | 2 | SMAJ15A | SMAJ15A | C152121 | Extended | CMS | 11460 | 11155 |  |

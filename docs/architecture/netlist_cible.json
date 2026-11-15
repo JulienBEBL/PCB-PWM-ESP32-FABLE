@@ -1265,7 +1265,7 @@
   },
   {
    "ref": "LED1",
-   "lcsc": "C114586",
+   "lcsc": "C2843785",
    "val": "WS2812B",
    "page": "P7",
    "fn": "LED RGB adressable",

@@ -58,4 +58,7 @@
 - Julien a chargé les fichiers sur JLCPCB : toutes les lignes reconnues sauf **LED1** (PO-16).
 - Julien demande une assurance de fonctionnement sans relecture de sa part (PO-17). Il va lancer un /compact ; la réponse est due juste après.
 
+- Capture de Julien : C114586 « removed from our assembly library ». LED1 remplacée par C2843785 (DEC-021), datasheet lue.
+- Seconde revue du schéma et du routage, hors ligne (pont sans fenêtre EasyEDA) : aucune erreur bloquante ; PO-18 à PO-21 ouverts.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

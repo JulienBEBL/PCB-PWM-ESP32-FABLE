@@ -30,10 +30,14 @@ Pages du schéma : 01_ALIM_5V_3V3 `23891438148d8911`, 02_ESP32_DEVKIT `0b7000125
 
 ## En cours au 2026-11-15 (à reprendre en premier)
 
-Julien est sur la page de commande JLCPCB. Deux sujets ouverts :
+Julien est sur la page de commande JLCPCB.
 
-1. **PO-16** : LED1 (C114586) non reconnue par JLCPCB (« No Part Selected »). Tout le reste est reconnu. À résoudre avant commande.
-2. **PO-17** : Julien demande comment être assuré que la carte fonctionne, sans pouvoir la vérifier lui-même. Répondre court et honnêtement.
+| Sujet | État |
+|---|---|
+| LED1 | C114586 retirée de l'assemblage. Remplacée par C2843785 (DEC-021) dans la netlist cible, la BOM et `BOM_JLCPCB_2026-11-14.csv`. Julien doit confirmer qu'elle est sélectionnable |
+| Seconde revue (schéma, routage) | Faite hors ligne : `hardware/rapports/REVUE_2_SCHEMA_ROUTAGE.md`. Aucune erreur bloquante |
+| Questions à Julien | PO-19 (tension maximale de la source 12 V, **avant commande**), PO-20 (modèle du vérin) |
+| EasyEDA | Non connecté au pont le 15. À faire à la reconnexion : PO-18 (attribut de LED1), PO-21 (plans, DRC) |
 
 Préférence de Julien : réponses très simples, sans phrases longues.
 
