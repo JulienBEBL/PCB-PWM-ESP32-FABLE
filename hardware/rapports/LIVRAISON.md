@@ -1,6 +1,6 @@
 # Rapport de livraison — carte PWM sécurisée ESP32
 
-**Date :** 2026-11-14. **Projet EasyEDA :** `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`). **Fichiers à envoyer :** `hardware/exports/`.
+**Date :** 2026-11-14, mis à jour le 2026-11-15 (session 03 : corrections de la revue, `CORRECTIONS_REVUE.md`). **Projet EasyEDA :** `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`). **Fichiers à envoyer :** `hardware/exports/`.
 
 ## 1. Ce qui est fait
 
@@ -17,10 +17,12 @@ Fichiers de `hardware/exports/` :
 
 | Fichier | Usage |
 |---|---|
-| `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` | **À déposer** sur la page de commande du PCB (sérigraphie revue, DEC-023) |
+| `Gerber_FABLE52_PCB_ESP32_2026-11-15_R3.zip` | **À déposer** (corrections de la revue, DEC-032) |
+| `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` | Périmé (avant les corrections de la revue) |
 | `Gerber_FABLE52_PCB_ESP32_2026-11-14.zip` | Périmé (ancienne sérigraphie), gardé pour mémoire |
-| `BOM_JLCPCB_2026-11-14.csv` | BOM pour l'assemblage (colonnes Comment, Designator, Footprint, LCSC Part #) |
-| `CPL_JLCPCB_2026-11-14.csv` | Positions pour l'assemblage |
+| `BOM_JLCPCB_2026-11-15_R3.csv` | **À déposer.** BOM pour l'assemblage (colonnes Comment, Designator, Footprint, LCSC Part #) |
+| `CPL_JLCPCB_2026-11-15_R3.csv` | **À déposer.** Positions pour l'assemblage |
+| `*_2026-11-14.*` | Périmés |
 | `BOM_EasyEDA_…`, `CPL_EasyEDA_…` (.csv, .xlsx) | Exports d'origine d'EasyEDA, acceptés aussi par JLCPCB |
 
 Le plus simple reste de commander depuis EasyEDA (menu de commande du PCB) : les fichiers sont alors générés par l'outil lui-même.
@@ -66,7 +68,9 @@ Fiches à vis à commander à part (non fournies par l'assemblage) : Kangnex sé
 | 2 | Aperçu de placement de JLCPCB : point de la broche 1 des circuits, **sens de D1, D2, D17, D9 à D12, LED5, D4 à D6, D8** (cathode sur la pastille 1), sens des relais (repère côté broches 1 / 8) | Page de commande, étape « Component Placements » |
 | 3 | Toutes les lignes de la BOM « confirmées », aucune en rupture ; en particulier **C1354132** (watchdog). En rupture : remplacer par **C46043** | Page de commande, étape BOM |
 | 4 | Borniers et barrettes reconnus comme composants traversants (assemblage « Standard ») | Idem |
-| 5 | Relire `DECISIONS.md` (DEC-006 à DEC-020) | Dépôt |
+| 5 | Relire `DECISIONS.md` (DEC-006 à DEC-032) | Dépôt |
+| 6 | Vue 3D : ouverture des borniers J1 à J7 vers l'extérieur de la carte (PO-31) | EasyEDA, PCB1, vue 3D |
+| 7 | Vérin commandé en version **-S** (L12-30-50-12-S) et source 12 V **≤ 12,5 V** (PO-33) ; 5 V venant d'une alimentation régulée (PO-27) | Achats |
 
 ## 5. Options de commande JLCPCB recommandées
 
@@ -117,8 +121,8 @@ Voir `docs/memoire/POINTS_OUVERTS.md`. Les principaux :
 | Signal | GPIO | Contrainte |
 |---|---|---|
 | `K1_CMD` / `K2_CMD` | 21 / 47 | Actifs à l'état haut |
-| `CP_DRV` | 42 | Signal carré ≈ 10 kHz, 50 %, en permanence pour autoriser K1 |
-| `WDT_KICK` | 14 | Un front au moins toutes les 50 ms (délai minimal du watchdog : 71 ms) |
+| `CP_DRV` | 42 | Signal carré ≈ 10 kHz, 50 %, en permanence pour autoriser K1. **Basculé par la boucle principale**, jamais par LEDC, RMT ou un timer matériel (revue S7, PO-29) |
+| `WDT_KICK` | 14 | Un front au moins toutes les 50 ms (délai minimal du watchdog : 71 ms). **Basculé par la boucle principale** (PO-29). Watchdog impulsionnel : mettre `K2_CMD` bas sur défaut (PO-28) |
 | `K1_FB` / `K2_FB` | 40 / 12 | Bas = relais excité |
 | `ARM_FB` | 41 | Haut = cavalier présent |
 | `V12_OK` / `STOP_HW_FB` | 39 / 7 | Bas = 12 V présent / 5e contact fermé |
@@ -127,4 +131,4 @@ Voir `docs/memoire/POINTS_OUVERTS.md`. Les principaux :
 | `FC_S1_NO`, `FC_S1_NC`, `FC_S2_NO`, `FC_S2_NC` | 15, 16, 17, 5 | Idem |
 | `EXT_IN1` / `EXT_IN2` | 4 (ADC1_CH3) / 18 | |
 | `V5_MON` | 3 (ADC1_CH2) | Tension = 5 V / 2 |
-| `STATUS_OUT`, `RGB_DATA`, `BUZZER` | 8, 6, 13 | STATUS : haut = ligne tirée à la masse |
+| `STATUS_OUT`, `RGB_DATA`, `BUZZER` | 8, 6, 13 | STATUS : haut = ligne tirée à la masse. `BUZZER` jamais maintenu haut (revue S8, PO-29) |

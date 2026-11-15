@@ -1,6 +1,6 @@
 # Exigences retenues
 
-**Version :** v1, 2026-11-14. **Source :** `Julien` = prompt de lancement ou réponses du 2026-11-14 (DEC-005). Les autres sources sont citées.
+**Version :** v1.1, 2026-11-15 (EX-02, EX-09 : session 03). **Source :** `Julien` = prompt de lancement ou réponses du 2026-11-14 (DEC-005). Les autres sources sont citées.
 **Vérification :** N = netlist (script `sch_check`), R = revue de schéma, P = contrôle PCB (script ou DRC), B = BOM, F = firmware / essai (hors périmètre de la carte nue).
 
 ## Fonction et sécurité
@@ -8,14 +8,14 @@
 | N° | Exigence | Source | Critère de vérification |
 |---|---|---|---|
 | EX-01 | Lire une consigne PWM 1000–2000 µs, ~50 Hz, 3,3 V ou 5 V | Julien ; STM32 DEC-030 | R : entrée tolérante 5 V (ESD, 1 kΩ, trigger de Schmitt alimenté en 3,3 V) ; N : `PWM_IN` sur GPIO1 |
-| EX-02 | Piloter un vérin Actuonix L12 12 V par inversion de polarité avec 2 relais DPDT | Julien ; STM32 DEC-022 | R : tableau du pont (K1, K2) conforme à `SYNOPTIQUE.md` §3 |
+| EX-02 | Piloter un vérin Actuonix L12 12 V par inversion de polarité avec 2 relais DPDT. **Version -S obligatoire** (fins de course internes, ex. L12-30-50-12-S) : au repos la carte alimente le vérin en rentrée en permanence | Julien ; STM32 DEC-022 ; PO-20 (réponse de Julien) ; tri V3 | R : tableau du pont (K1, K2) conforme à `SYNOPTIQUE.md` §3 ; brochage G6K et sens du vérin : DEC-025 |
 | EX-03 | Relais au repos = position sûre (tige rentrée) | Julien | R : au repos `VERIN_A` = `GND_P`, `VERIN_B` = `+12V_P` |
 | EX-04 | Aucune défaillance simple ne provoque l'action | Julien ; STM32 DEC-020 | R : analyse de `SYNOPTIQUE.md` §4 ; l'action exige K1 et K2, tenus par deux principes indépendants |
 | EX-05 | Cavalier d'armement physique sur la chaîne d'action | Julien ; STM32 DEC-025, DEC-073 | N : J7 en série avec la bobine de K2 ; relu par `ARM_FB` |
 | EX-06 | Relecture de l'état des deux relais | Julien ; STM32 DEC-023 | N : pôle B de K1, K2 vers `K1_FB`, `K2_FB` |
 | EX-07 | Présence 12 V lue par optocoupleur | Julien ; STM32 DEC-024 | N : U6 entre `+12V_P` et `V12_OK` |
 | EX-08 | Isolation et masses séparées entre le domaine 12 V et le domaine 5 V / PWM | Julien ; STM32 DEC-021 | N : seuls K1, K2, U6, U7 touchent les deux domaines ; P : ≥ 2 mm entre cuivres des deux domaines, hors empreinte des relais |
-| EX-09 | Protection du 12 V pour une source non maîtrisée : inversion, surtension, fusible | Julien ; STM32 DEC-034, DEC-065 | R : F2, D2, U5 + Q8 / Q9, seuil 15,0 V typique (DEC-022) |
+| EX-09 | Protection du 12 V pour une source non maîtrisée : inversion, surtension, fusible | Julien ; STM32 DEC-034, DEC-065 | R : F2, D2, U5 + Q8 / Q9, seuil 13,45 V typique, 12,5 à 14,4 V (DEC-027) |
 | EX-10 | Pompe de charge sur K1, watchdog externe sur K2, 5e contact d'arrêt matériel (J6) relu par optocoupleur | Julien (Q3 : « tu conserves tout ») ; STM32 architecture §5, §6 | N : Q3 commandé par `CP_OUT`, Q5 par `WD_OK`, `NO_FEED` entre J6 et le NO de K1, U7 |
 | EX-11 | États des GPIO au démarrage : aucune action possible | Julien (revue finale) | R : rappels à la masse sur `K1_G`, `K2_G`, `WDT_KICK` ; `CP_DRV` couplé par condensateur ; aucune broche de démarrage sur une commande |
 

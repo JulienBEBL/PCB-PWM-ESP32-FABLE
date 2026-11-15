@@ -9,6 +9,7 @@ J1.1 +5V_IN ─ F1 (PTC 0,5 A) ─ +5V_F ─ D1 (TVS 5 V) ─ U15 (LM66100) ─ 
                                                                             └─ U16 (LM66100) ─ +5V_ESP ─ J20.21 (broche 5V)
 carte de dev : régulateur interne ─ J20.1, J20.2 ─ +3V3 ─ U3, U4, rappels, LED5, buzzer, J8
 ```
+D1 écrête à 9,2 V : elle ne protège pas U15, U16 (6 V au maximum absolu). Risque accepté, le 5 V vient de l'alimentation régulée du contrôleur (DEC-026, PO-27).
 
 | Choix | Raison | Source |
 |---|---|---|
@@ -38,7 +39,7 @@ J2.1 +12V_IN ─ F2 (PTC 0,5 A) ─ +12V_F ─ D2 (TVS 15 V) ─ Q8 ═ Q9 (dos 
 
 | Élément | Valeur | Source |
 |---|---|---|
-| Seuil de coupure en surtension | 1,25 V × (110 + 10) / 10 = 15,0 V typique (14,0 à 16,0 V, même dispersion relative que le calcul d'origine) | DEC-022 (2026-11-15). Ancien seuil : 13,16 V (12,27 à 14,04 V), STM32 DEC-065 |
+| Seuil de coupure en surtension | 1,25 V × (97,6 + 10) / 10 = 13,45 V typique (12,5 à 14,4 V avec VOVR 1,165 à 1,333 V) | DEC-027 (2026-11-15). Avant : 15,0 V (DEC-022), 13,16 V (STM32 DEC-065). Vérin L12 12 V : 13,5 V maximum (Actuonix) |
 | Zener D8 10 V entre grille et source | VGS max de l'AO3400A : ±12 V | Reprise STM32 BOM §4 point 5 |
 | Inversion de polarité | D2 conduit en direct, F2 déclenche ; Q9 bloque le retour | Analyse de la netlist |
-| Courant du vérin | ≤ 200 mA en blocage | Reprise STM32 PO-27 |
+| Courant du vérin | 246 mA en blocage (L12 12 V) | Datasheet Actuonix L12 (relue le 2026-11-15) ; contacts G6K : 1 A |

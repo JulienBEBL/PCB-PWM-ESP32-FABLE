@@ -50,7 +50,7 @@ Liaisons : chaque broche porte un fil court au nom de son net (DEC-012). Aucun f
 
 ## 3. Pont du vérin (reprise STM32 `ARCHITECTURE_COMMANDE_VERIN.md` §2, revérifiée sur la netlist)
 
-J3.1 = `VERIN_A` (fil rouge), J3.2 = `VERIN_B` (fil noir). Rouge au + : sortie de tige (source : STM32 `ACTIONNEUR_L12.md`, non revérifiée ici → PO-07).
+J3.1 = `VERIN_A` (fil rouge), J3.2 = `VERIN_B` (fil noir). Rouge au + : sortie de tige (datasheet Actuonix L12 option -S, relue le 2026-11-15 ; brochage G6K relu sur le dessin Omron : DEC-025).
 
 | K1 | K2 | `VERIN_A` | `VERIN_B` | Effet |
 |---|---|---|---|---|
@@ -59,7 +59,7 @@ J3.1 = `VERIN_A` (fil rouge), J3.2 = `VERIN_B` (fil noir). Rouge au + : sortie d
 | repos | travail | 0 V | `GND_P` (K2.5 NO) | Arrêt |
 | travail | travail | +12 V par le 5e contact | 0 V | **Sortie : action** |
 
-Le 5e contact (NC externe entre J6.1 et J6.3) ouvert coupe la sortie seule ; la rentrée ne passe pas par lui.
+Le 5e contact (NC externe entre J6.1 et J6.3) ouvert coupe la sortie seule ; la rentrée ne passe pas par lui. C'est voulu (revue S3, faux positif) : arrêt matériel en position d'action (STM32 DEC-029) ; la rentrée est la mise en sécurité.
 
 ## 4. Défaillance simple → pas d'action
 
@@ -78,7 +78,7 @@ Le 5e contact (NC externe entre J6.1 et J6.3) ouvert coupe la sortie seule ; la 
 
 Limite reprise de la carte STM32 : une erreur de logique du firmware actif qui commande l'action n'est arrêtée que par le cavalier, le 5e contact et le blocage mécanique.
 
-Comportement du watchdog U4 (STWD100, datasheet ST DocID014134 Rev 8, §2 et tableau 5) : sans front sur WDI pendant tWD (71 à 142 ms), WDO passe bas 140 à 280 ms, remonte, et recommence. Avec un ESP32 figé, `WD_OK` est donc haut environ un tiers du temps : K2 ne colle pas pour autant si `K2_CMD` est bas, et K1 reste au repos (pompe).
+Comportement du watchdog U4 (STWD100, datasheet ST DocID014134 Rev 8, §2 et tableau 5) : sans front sur WDI pendant tWD (71 à 142 ms), WDO passe bas 140 à 280 ms, remonte, et recommence. Avec un ESP32 figé, `WD_OK` est donc haut environ un tiers du temps : K2 ne colle pas pour autant si `K2_CMD` est bas, et K1 reste au repos (pompe). Suivi : PO-28.
 
 ## 5. États au démarrage (EX-11)
 

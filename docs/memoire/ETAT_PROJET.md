@@ -1,8 +1,8 @@
 # État du projet
 
-**Dernière mise à jour :** 2026-11-15 (session 02 : sérigraphie)
+**Dernière mise à jour :** 2026-11-15 (session 03 : corrections de la revue à l'aveugle)
 
-**Échéance :** commande JLCPCB lundi 16 novembre 2026. **Les exports sont prêts** (samedi 14).
+**Échéance :** commande JLCPCB lundi 16 novembre 2026. **Exports à envoyer : suffixe `2026-11-15_R3`** (DEC-032, PO-32).
 
 ## Phases
 
@@ -15,6 +15,7 @@
 | 7 | Exports Gerber, BOM, CPL | Terminée : `hardware/exports/` |
 | 8 | Revue finale | Terminée : `hardware/rapports/REVUE_FINALE.md` (0 bloquant) |
 | 9 | Rapport de livraison | Terminée : `hardware/rapports/LIVRAISON.md` |
+| 10 | Corrections de la revue à l'aveugle (session 03) | Terminée : `hardware/rapports/CORRECTIONS_REVUE.md` |
 
 ## État d'EasyEDA
 
@@ -22,12 +23,13 @@ Projet `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`), enregistré.
 
 | Élément | État |
 |---|---|
-| Schematic1 | 10 pages, 136 composants. Netlist = cible (0 écart). ERC 0 / 0 |
-| PCB1 (`5457367f86d6a6ce`) | 120 × 80 mm, 4 couches, 136 composants en face supérieure, 78 nets routés. DRC 0 erreur. Isolement 2,34 mm |
-| Dernière modification | R303 passée à 1 kΩ en place (schéma et PCB), sans nouvel import |
+| Schematic1 | 10 pages, 136 composants. Netlist = cible (0 écart, 2026-11-15 session 03). ERC 0 erreur, 1 avertissement (PO-22) |
+| PCB1 (`5457367f86d6a6ce`) | 120 × 80 mm, 4 couches, 136 composants en face supérieure, 175 vias. DRC 0 erreur. Isolement 2,34 mm hors relais, 2,2 mm dans les relais |
+| Dernière modification | Session 03 : R502 97,6 k, R331 33 Ω (en place), 5 vias, notes et texte de la bande. Aucun import |
 
 Pages du schéma : 01_ALIM_5V_3V3 `23891438148d8911`, 02_ESP32_DEVKIT `0b70001258193e30`, 03_ENTREE_PWM `9e3e9cc2c1aa5c3e`, 04_FINS_DE_COURSE `cf79095e8e4cc8c3`, 05_EXTENSION `54a4ef5528ca2c5c`, 06_RELAIS_K1_POMPE `d18f0af72a4cec22`, 07_RELAIS_K2_WATCHDOG `8e6b3fefa807e9ce`, 08_IHM_STATUS `f472b8bb88dc5069`, 09_PUISSANCE_12V_ENTREE `f974eef09e9da1fa`, 10_VERIN_OPTOS `8c889d2021e11d54`.
 
+## Session 03 (2026-11-15 soir) : corrections de la revue à l'aveugle — terminéeRapport : `hardware/rapports/CORRECTIONS_REVUE.md`. Décisions DEC-025 à DEC-032, points PO-27 à PO-33. Brochage G6K confirmé sur le dessin Omron (DEC-025). Tout le tableau « En cours » ci-dessous est antérieur : là où il diverge, la session 03 prime (R502 = 97,6 k ; Gerber à déposer : `_R3`).**Prochaine action : Julien** suit `CORRECTIONS_REVUE.md` §5, puis commande.
 ## En cours au 2026-11-15 (à reprendre en premier)
 
 Julien est sur la page de commande JLCPCB.
@@ -69,6 +71,7 @@ Dossier `C:\Users\throj\Documents\BEBL\FABLE_DRONE\_outils_fable\`. Lancer avec 
 | `pcb_drc.mjs`, `pcb_iso.mjs`, `pcb_cu.mjs` | DRC détaillé, isolement indépendant, relevé du cuivre |
 | `pcb_export.mjs`, `gen_jlc.mjs` | Exports (refuse si le DRC n'est pas vide), CSV JLCPCB et contrôle de cohérence |
 | `sch_png.mjs` | Image de la vue affichée |
+| `swap_val.mjs`, `fix_notes.mjs`, `pcb_via2.mjs` | Session 03 : échange de résistance en place, textes, second via (`pcb_export.mjs` : `DAY=…`) |
 
 ## Si une modification est demandée
 

@@ -81,3 +81,18 @@
 - Révision 2 demandée par Julien (DEC-024) : broches numérotées et nommées dans le cadre des borniers, J21/J22, titre et S/N à 2,0 mm. Contrôle 0 défaut, DRC 0, Gerber du 15 régénéré.
 
 **Prochaine session :** voir `ETAT_PROJET.md`.
+
+## Session 03 — 2026-11-15 (dimanche soir) : corrections de la revue à l'aveugle
+
+Opus 5.5 reprend la carte de Fable. Entrées : revue `REVUE_AVEUGLE_OPUS.md`, tri de l'ingénieur, décisions D1 et D2 de Julien. Aucune question posée (aucune ambiguïté bloquante).
+
+- Uuid vérifié : `836928ac4399433ab9cd56636d997eda`. Pont OK.
+- C1 : dessin Omron G6K-2F-Y lu en image (rendu PDF par pypdfium2) : conforme. Sens du vérin vérifié sur la datasheet Actuonix (PO-07 clos). DEC-025.
+- C2 : D1 conforme. C3 : aucun TVS VC < 6 V → D1 conservée, risque accepté. DEC-026, PO-27.
+- C4 : R502 = 97,6 k (DEC-027), notes de la page 09. C5, C6 : textes (DEC-028). Erreur de fait de Fable : 1,10 mm → 2,2 mm.
+- A1 : 5 vias (DEC-030). A2 : écarté (DEC-031). A3 : R331 = 33 Ω (DEC-029). Aucun import vers le PCB : aucun clic « Apply » nécessaire.
+- V1 : WDO impulsionnel (PO-28). V2 : borniers probablement ouverts vers l'extérieur (PO-31). V3 : -S ajouté à EX-02.
+- Contrôles : netlist 0 écart, ERC 0 erreur (1 avertissement PO-22), schéma / PCB 0 écart sur 407 broches, DRC 0, isolement 2,34 mm, sérigraphie 0 défaut.
+- Exports `_R3` (DEC-032), stock relevé sur les 46 lignes.
+- Échecs d'outils : agent de lecture web refusé ; datasheet ST STWD100 non téléchargeable (3 essais). Pièges : `python -I` ignore les paquets installés en `--user` (utiliser `-P -E`) ; un PDF local ne s'affiche pas dans le navigateur intégré.
+- Rapport : `hardware/rapports/CORRECTIONS_REVUE.md`.

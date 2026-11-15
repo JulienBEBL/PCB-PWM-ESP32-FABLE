@@ -1,6 +1,6 @@
 # BOM verifiee
 
-Generee depuis `docs/architecture/netlist_cible.json`. 136 composants, 45 references (17 Basic, 28 Extended).
+Generee depuis `docs/architecture/netlist_cible.json`. 136 composants, 46 references (18 Basic, 28 Extended). Mise a jour manuelle du 2026-11-15 (session 03 : R331, R502) ; stock de toutes les lignes relu ce jour-la (`CORRECTIONS_REVUE.md` §3).
 Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = quantite commandable.
 
 | Reperes | Qte | Valeur | Reference | LCSC | Classe | Montage | Stock | Dispo | Alternative |
@@ -26,7 +26,8 @@ Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = qua
 | U11, U12 | 2 | SRV05-4 | SRV05-4-P-T7 | C85364 | Extended | CMS | 20281 | 14178 |  |
 | C311, C312, C313, C314, C315, C316, C317, C318, C331, C332, C403, C405, C406, C506, C507 | 15 | 10nF | 0603B103K500NT | C57112 | Basic | CMS | 5221616 | 3622842 |  |
 | J8 | 1 | Barrette M 1x4 | PZ254V-11-04P | C492403 | Extended | Traversant | 58716 | 57447 |  |
-| R331, R501 | 2 | 0R | 0603WAF0000T5E | C21189 | Basic | CMS | 17204493 | 14796368 |  |
+| R501 | 1 | 0R | 0603WAF0000T5E | C21189 | Basic | CMS | 17173688 | — |  |
+| R331 | 1 | 33R | 0603WAF330JT5E | C23140 | Basic | CMS | 3181817 | — | DEC-029 : remplace 0 Ω, relevé du 2026-11-15 |
 | R332, R333, R402, R407, R505, R507 | 6 | 4.7k | 0603WAF4701T5E | C23162 | Basic | CMS | 14936162 | 11661816 |  |
 | K1, K2 | 2 | G6K-2F-Y DC5 | G6K-2F-Y-TR DC5 | C47190 | Extended | CMS | 56865 | 52737 |  |
 | D4, D5, D6 | 3 | 1N4148W | 1N4148W | C81598 | Basic | CMS | 3240980 | 2844508 |  |
@@ -45,7 +46,7 @@ Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = qua
 | U5 | 1 | LM74502 | LM74502DDFR | C3236215 | Extended | CMS | 7557 | 7472 |  |
 | C501 | 1 | 220nF | CL10B224KA8NNNC | C21120 | Basic | CMS | 1035555 | 864219 |  |
 | D8 | 1 | BZT52C10 | BZT52C10 | C2103 | Extended | CMS | 57520 | 52394 |  |
-| R502 | 1 | 110k | 0603WAF1103T5E | C25805 | Extended | CMS | 207428 | 140500 | DEC-022 : remplace 95,3 k (C23267), relevé du 2026-11-15 |
+| R502 | 1 | 97.6k | 0603WAF9762T5E | C23269 | Extended | CMS | 3280 | — | DEC-027 : remplace 110 k (C25805), relevé du 2026-11-15 |
 | J6 | 1 | Bornier 3 pts 3,81 | WJ15EDGRC-3.81-03P-14-00A | C8406 | Extended | Traversant | 60194 | 55488 |  |
 | J3 | 1 | Bornier 2 pts 3,81 | WJ15EDGRC-3.81-02P-14-00A | C8387 | Extended | Traversant | 174902 | 158212 |  |
 | D3 | 1 | SMAJ15CA | SMAJ15CA | C151939 | Extended | CMS | 11556 | 11146 |  |

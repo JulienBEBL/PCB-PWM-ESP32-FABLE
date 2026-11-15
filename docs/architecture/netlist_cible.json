@@ -734,10 +734,10 @@
   },
   {
    "ref": "R331",
-   "lcsc": "C21189",
-   "val": "0R",
+   "lcsc": "C23140",
+   "val": "33R",
    "page": "P5",
-   "fn": "Alimentation extension",
+   "fn": "Alimentation extension, limite un court-circuit (DEC-029)",
    "pins": {
     "1": "+3V3",
     "2": "+3V3_EXT"
@@ -1476,10 +1476,10 @@
   },
   {
    "ref": "R502",
-   "lcsc": "C25805",
-   "val": "110k",
+   "lcsc": "C23269",
+   "val": "97.6k",
    "page": "P8",
-   "fn": "Seuil surtension",
+   "fn": "Seuil surtension 13,45 V (DEC-027)",
    "pins": {
     "1": "+12V_F",
     "2": "LM_OV"
