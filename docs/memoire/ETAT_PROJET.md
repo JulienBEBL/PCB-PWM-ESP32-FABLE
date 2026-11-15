@@ -1,6 +1,6 @@
 # État du projet
 
-**Dernière mise à jour :** 2026-11-14 (session 01, fin de la phase 9)
+**Dernière mise à jour :** 2026-11-15 (session 02 : sérigraphie)
 
 **Échéance :** commande JLCPCB lundi 16 novembre 2026. **Les exports sont prêts** (samedi 14).
 
@@ -40,7 +40,8 @@ Julien est sur la page de commande JLCPCB.
 | Vérin | L12-30-50-12-S, fins de course internes (PO-20 clos) |
 | R502 | 110 kΩ (DEC-022), seuil de surtension 15,0 V. En place dans le schéma, le PCB, la netlist cible, la BOM et `BOM_JLCPCB_2026-11-14.csv` |
 | Derniers contrôles (15, après R502) | Netlist 0 écart ; ERC 0 erreur, 1 avertissement (PO-22) ; DRC 0 ; isolement 2,34 mm |
-| **En attente de Julien** | Recharger `BOM_JLCPCB_2026-11-14.csv` sur JLCPCB (LED1 et R502 ont changé). Gerber et CPL inchangés. Fichiers bruts `BOM_EasyEDA_*` non régénérés |
+| Sérigraphie (session 02) | Revue complète (DEC-023) : 0 recouvrement, 0 texte sur pastille ou via, 0 texte sous 1,0 mm, 0 à l'envers. Légendes de broches, TP, isolement, case S/N ajoutés. Restes : PO-24, PO-25. Rapport : `hardware/rapports/RAPPORT_SERIGRAPHIE.md`. DRC 0, isolement 2,34 mm, projet enregistré (uuid vérifié `836928ac4399433ab9cd56636d997eda`) |
+| **En attente de Julien** | Déposer **`Gerber_FABLE52_PCB_ESP32_2026-11-15.zip`** (PO-26) et recharger `BOM_JLCPCB_2026-11-14.csv` (LED1 et R502 ont changé). CPL inchangé. Fichiers bruts `BOM_EasyEDA_*` non régénérés |
 | Simulation | Julien a demandé ce qui est simulable. Réponse : table d'états et pannes simples par script ; pas de SPICE installé |
 
 Préférence de Julien : réponses très simples, sans phrases longues.
@@ -64,6 +65,7 @@ Dossier `C:\Users\throj\Documents\BEBL\FABLE_DRONE\_outils_fable\`. Lancer avec 
 | `placement.mjs`, `pcb_plan.mjs` | Plan de placement, contrôle hors ligne, application (`APPLY=1`) |
 | `pcb_setup.mjs`, `pcb_rules.mjs`, `pcb_prep.mjs`, `pcb_pours.mjs`, `pcb_silk.mjs` | Contour, règles, zones d'isolement, plans, sérigraphie |
 | `pcb_route.mjs`, `pcb_rip.mjs`, `pcb_fanout.mjs`, `pcb_line.mjs`, `pcb_link.mjs`, `pcb_block.mjs`, `pcb_width.mjs` | Routage et reprises contrôlées |
+| `silk_dump.mjs`, `silk_check.mjs`, `silk_place.mjs`, `silk_apply.mjs`, `silk_nudge.mjs`, `silk_table.mjs`, `pcb_zoom.mjs`, `pcb_gerber.mjs` | Sérigraphie : relevé, contrôle, placement, application ; image d'une zone ; Gerber seul |
 | `pcb_drc.mjs`, `pcb_iso.mjs`, `pcb_cu.mjs` | DRC détaillé, isolement indépendant, relevé du cuivre |
 | `pcb_export.mjs`, `gen_jlc.mjs` | Exports (refuse si le DRC n'est pas vide), CSV JLCPCB et contrôle de cohérence |
 | `sch_png.mjs` | Image de la vue affichée |

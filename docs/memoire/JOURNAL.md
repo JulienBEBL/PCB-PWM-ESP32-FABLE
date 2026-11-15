@@ -70,4 +70,12 @@
 - Julien a cliqué « Apply » : DRC 0 (PO-23 clos). Accord de Julien pour R502 = 110 kΩ (DEC-022) : modifiée en place. Piège retrouvé : la modification des propriétés côté PCB vide le code fournisseur ; il faut le réécrire dans un second appel.
 - Contrôles finaux : netlist 0 écart, ERC 1 avertissement (PO-22), DRC 0, isolement 2,34 mm.
 
+## Session 02 — 2026-11-15 (dimanche) : sérigraphie
+
+- Uuid du projet actif vérifié : `836928ac4399433ab9cd56636d997eda` (FABLE52_PCB_ESP32). `git pull` en Git Bash bloqué (verrou), `git fetch` en PowerShell : à jour.
+- Règles JLCPCB relevées (Legend) : 1,0 mm, 0,15 mm, 0,15 mm. Inventaire : 98 textes sur 148 en défaut.
+- Questions à Julien : réponses par défaut, sauf texte de la carte de dev conservé (DEC-023).
+- Corrections par l'API : 109 repères replacés, 24 regroupés, 3 masqués, 29 textes et 9 traits ajoutés. Contrôle : 0 défaut sauf PO-25. DRC 0, isolement 2,34 mm, composants et vias identiques.
+- Nouveau Gerber du 15 (PO-26). Piège API : `pcb_PrimitiveLine.create` refuse la couche sérigraphie ; utiliser `pcb_PrimitivePolyline`.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

@@ -17,7 +17,8 @@ Fichiers de `hardware/exports/` :
 
 | Fichier | Usage |
 |---|---|
-| `Gerber_FABLE52_PCB_ESP32_2026-11-14.zip` | À déposer sur la page de commande du PCB |
+| `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` | **À déposer** sur la page de commande du PCB (sérigraphie revue, DEC-023) |
+| `Gerber_FABLE52_PCB_ESP32_2026-11-14.zip` | Périmé (ancienne sérigraphie), gardé pour mémoire |
 | `BOM_JLCPCB_2026-11-14.csv` | BOM pour l'assemblage (colonnes Comment, Designator, Footprint, LCSC Part #) |
 | `CPL_JLCPCB_2026-11-14.csv` | Positions pour l'assemblage |
 | `BOM_EasyEDA_…`, `CPL_EasyEDA_…` (.csv, .xlsx) | Exports d'origine d'EasyEDA, acceptés aussi par JLCPCB |
