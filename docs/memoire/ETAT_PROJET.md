@@ -40,7 +40,7 @@ Julien est sur la page de commande JLCPCB.
 | Vérin | L12-30-50-12-S, fins de course internes (PO-20 clos) |
 | R502 | 110 kΩ (DEC-022), seuil de surtension 15,0 V. En place dans le schéma, le PCB, la netlist cible, la BOM et `BOM_JLCPCB_2026-11-14.csv` |
 | Derniers contrôles (15, après R502) | Netlist 0 écart ; ERC 0 erreur, 1 avertissement (PO-22) ; DRC 0 ; isolement 2,34 mm |
-| Sérigraphie (session 02) | Revue complète (DEC-023) : 0 recouvrement, 0 texte sur pastille ou via, 0 texte sous 1,0 mm, 0 à l'envers. Légendes de broches, TP, isolement, case S/N ajoutés. Restes : PO-24, PO-25. Rapport : `hardware/rapports/RAPPORT_SERIGRAPHIE.md`. DRC 0, isolement 2,34 mm, projet enregistré (uuid vérifié `836928ac4399433ab9cd56636d997eda`) |
+| Sérigraphie (session 02) | Revue complète (DEC-023), puis révision 2 (DEC-024 : broches dans le cadre des borniers, titre et S/N 2,0 mm) : 0 recouvrement, 0 texte sur pastille ou via, 0 texte sous 1,0 mm, 0 à l'envers. Légendes de broches, TP, isolement, case S/N ajoutés. Restes : PO-24, PO-25. Rapport : `hardware/rapports/RAPPORT_SERIGRAPHIE.md`. DRC 0, isolement 2,34 mm, projet enregistré (uuid vérifié `836928ac4399433ab9cd56636d997eda`) |
 | **En attente de Julien** | Déposer **`Gerber_FABLE52_PCB_ESP32_2026-11-15.zip`** (PO-26) et recharger `BOM_JLCPCB_2026-11-14.csv` (LED1 et R502 ont changé). CPL inchangé. Fichiers bruts `BOM_EasyEDA_*` non régénérés |
 | Simulation | Julien a demandé ce qui est simulable. Réponse : table d'états et pannes simples par script ; pas de SPICE installé |
 

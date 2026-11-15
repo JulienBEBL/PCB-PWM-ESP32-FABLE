@@ -22,7 +22,7 @@ Un point clos reste listé avec sa résolution. **Criticité :** B = bloque la c
 | PO-22 | 2026-11-15 | ERC : 1 avertissement depuis le changement de référence de LED1 (0 avec l'ancienne référence, test fait). L'API ne donne pas le texte. Cause probable : empreinte du projet (`…TC5050RGB`) différente de celle de la bibliothèque pour C2843785 (`…XL-5050RGBC`). Sans effet électrique : netlist 0 écart. | M | Empreinte conservée : cotes conformes au dessin de la datasheet XINGLIGHT | Julien : lire le message dans l'onglet DRC du schéma, s'il le souhaite |
 | PO-24 | 2026-11-15 | Écart sérigraphie / bord de carte : non publié sur la page « capabilities » de JLCPCB (section Legend lue le 2026-11-15). **[Hypothèse]** 0,3 mm appliqué. | C | Aucun texte à moins de 0,3 mm du bord | Claude, si une source est trouvée |
 | PO-25 | 2026-11-15 | Sérigraphie : D11, R416, R420 sans repère (aucune place sans déplacer un composant) ; C420 et R103 jugés ambigus par le critère strict, lisibles à l'image. `RAPPORT_SERIGRAPHIE.md` §10. | C | Repères masqués ; BOM et CPL inchangés | Julien, s'il veut déplacer un composant |
-| PO-26 | 2026-11-15 | **Le Gerber à déposer est `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip`** (nouvelle sérigraphie). Celui du 14 est conservé mais périmé. BOM et CPL inchangés. | **B** (commande) | — | Julien, à la commande |
+| PO-26 | 2026-11-15 | **Le Gerber à déposer est `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip`** (sérigraphie révision 2, 298 437 octets). Celui du 14 est conservé mais périmé. BOM et CPL inchangés. | **B** (commande) | — | Julien, à la commande |
 
 ## Clos
 

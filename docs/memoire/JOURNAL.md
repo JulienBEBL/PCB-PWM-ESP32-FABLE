@@ -78,4 +78,6 @@
 - Corrections par l'API : 109 repères replacés, 24 regroupés, 3 masqués, 29 textes et 9 traits ajoutés. Contrôle : 0 défaut sauf PO-25. DRC 0, isolement 2,34 mm, composants et vias identiques.
 - Nouveau Gerber du 15 (PO-26). Piège API : `pcb_PrimitiveLine.create` refuse la couche sérigraphie ; utiliser `pcb_PrimitivePolyline`.
 
+- Révision 2 demandée par Julien (DEC-024) : broches numérotées et nommées dans le cadre des borniers, J21/J22, titre et S/N à 2,0 mm. Contrôle 0 défaut, DRC 0, Gerber du 15 régénéré.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

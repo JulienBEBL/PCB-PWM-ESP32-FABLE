@@ -173,6 +173,54 @@ Image : `hardware/rapports/pcb_serigraphie.png`. Projet enregistré.
 | Dessins des empreintes (contours, barres de cathode) | Hors de portée de l'API, non modifiés (règle 2) | Aperçu JLCPCB à la commande |
 | Gerber du 14 | Ne contient pas la nouvelle sérigraphie | Déposer celui du 15 (PO-26) |
 
+## 11. Révision 2 (demande de Julien du 2026-11-15, DEC-024)
+
+Demande : numéro et fonction en face de chaque trou des borniers, textes dans le cadre des connecteurs (des PCB nus serviront de notice), textes J21/J22 au-dessus et au-dessous de leur rangée, titre et S/N agrandis, nouveau contrôle des tailles. Script : `silk_v2.mjs` (puis `silk_v2b.mjs`, `silk_v2c.mjs` pour trois textes trop longs et le titre de J7).
+
+| Connecteur | Dans le cadre (numéro au-dessus de la fonction, face à chaque trou) | Titre dans le cadre |
+|---|---|---|
+| J1 | 1 +5V, 2 GND, 3 PWM, 4 STAT | J1 ENTREE PWM |
+| J2 | 1 +12V, 2 0V | J2 ENTREE 12V |
+| J3 | 1 ROUGE, 2 NOIR | J3 VERIN |
+| J4 | 1 COM, 2 NO, 3 NC, 4 COM, 5 NO, 6 NC | J4 FDC RENTRE  R1:1-3  R2:4-6 |
+| J5 | 1 COM, 2 NO, 3 NC, 4 COM, 5 NO, 6 NC, 7 LIBRE | J5 FDC SORTI  S1:1-3  S2:4-6 |
+| J6 | 1 12V, 2 LIBRE, 3 RET | J6 CONTACT NC / SINON PONT 1-3 |
+| J7 | 1 +5V, 2 -, 3 ARM (à droite de chaque trou) | J7 ARMEMENT / PONT 1-3 = ARME (vertical) |
+| J8 | 3V3, EX1, EX2, GND au-dessus des broches (inchangé) | Légende verticale « J8 EXTENSION 3V3 MAX » (inchangée) |
+| J21 / J22 | — | « J22 ENTRAXE 22.86 (ESPRESSIF) » au-dessus de la rangée J22 ; « J21 ENTRAXE 25.40 (CARTES PLUS LARGES) » au-dessous de la rangée J21 |
+
+Remarques :
+- J8 : pas de numéro de broche. Il n'y a pas de place dans son cadre (barrette de 2,8 mm) ni au-dessus (bord de carte). La pastille 1 est carrée.
+- J7 : le titre vertical est placé à gauche du trait intérieur dessiné par l'empreinte (x = 118,36 mm, mesuré à l'image).
+- Les anciennes légendes extérieures (J1, J4/J5, J2, J3, J6, J7, « 1 » de broche 1, note d'entraxe) sont supprimées : 15 textes.
+- Le titre passe de 1,2 à 2,0 mm : « BEBL CARTE PWM SECURISEE ESP32 V1.0 11/2026 ». « S/N : » passe à 2,0 mm, et le cadre passe à 18 × 4 mm, juste au-dessus du titre.
+
+### Tailles et lisibilité
+
+Règle JLCPCB (Legend) : hauteur ≥ 1,0 mm, trait ≥ 0,15 mm, rapport 1:6.
+
+| Hauteur | Trait | Nombre | Usage |
+|---|---|---|---|
+| 1,0 mm | 0,165 mm | 121 | Repères CMS, libellés TP, groupes, J8, textes de domaine |
+| 1,2 mm | 0,203 mm | 62 | Numéros et fonctions des broches, titres des borniers, entraxes J21/J22 |
+| 1,2 mm | 0,165 mm | 2 | Texte de la carte de dev, « USB » |
+| 1,5 mm | 0,229 mm | 11 | Repères des connecteurs J1 à J8, J20 à J22 |
+| 2,0 mm | 0,305 mm | 2 | Titre, « S/N : » |
+
+Aucun texte sous 1,0 mm ni sous 0,15 mm de trait : tout est fabricable. Les 121 textes à 1,0 mm sont au minimum de JLCPCB. Ils restent lisibles à l'œil nu, mais ce sont les plus fins de la carte. Les instructions de câblage sont à 1,2 mm ou plus.
+
+### Contrôle après révision 2
+
+| Contrôle | Résultat |
+|---|---|
+| Recouvrement, texte sur pastille, sur via, sous une empreinte, hors carte, à l'envers, < 1,0 mm, trait < 0,15 mm | **0** |
+| Textes dans le cadre d'un bornier (voulu) | 67, à ≥ 0,2 mm des pastilles |
+| Ambigus / éloignés (critère strict) | C420, R103 (inchangés, PO-25) |
+| DRC | 0 ligne |
+| Isolement | 2,34 mm |
+| Composants, pastilles, vias | Identiques au relevé du début de session |
+| Gerber | `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` régénéré (298 437 octets) |
+
 ## Annexe A — Textes de sérigraphie avant correction
 
 Colonnes X et Y : coin inférieur gauche de la boîte englobante. Repère du PCB : origine en bas à gauche, Y vers le haut.
@@ -328,9 +376,9 @@ Colonnes X et Y : coin inférieur gauche de la boîte englobante. Repère du PCB
 | «J21 : ENTRAXE 25,40   J22 : ENTRAXE 22,86 (ESPRESSIF)» | Top | 8.00 | 31.60 | 0.90 | 0° | 8.00 31.60 36.33 32.50 |  |
 | «USB» | Top | 1.00 | 44.00 | 1.20 | 90° | 1.00 44.00 2.20 46.14 |  |
 
-## Annexe B — Textes de sérigraphie après correction
+## Annexe B — Textes de sérigraphie après la révision 2
 
-Même convention que l'annexe A. Colonne « Défauts » : critères stricts du §2.
+Même convention que l'annexe A. « cadre » = texte voulu dans le cadre d'un bornier.
 
 | Texte | Couche | X (mm) | Y (mm) | Hauteur (mm) | Rotation | Boîte englobante x0 y0 x1 y1 (mm) | Défauts |
 |---|---|---|---|---|---|---|---|
@@ -375,17 +423,17 @@ Même convention que l'annexe A. Colonne « Défauts » : critères stricts du �
 | D17 | Top | 108.65 | 13.57 | 1.00 | 90° | 108.65 13.57 109.65 15.18 |  |
 | F1 | Top | 20.68 | 65.98 | 1.00 | 90° | 20.68 65.98 21.68 66.91 |  |
 | F2 | Top | 23.38 | 15.32 | 1.00 | 0° | 23.38 15.32 24.54 16.32 |  |
-| J1 | Top | 25.54 | 74.23 | 1.50 | 0° | 25.54 74.23 26.78 75.73 |  |
-| J2 | Top | 13.05 | 13.23 | 1.50 | 0° | 13.05 13.23 14.66 14.73 |  |
-| J3 | Top | 85.73 | 4.28 | 1.50 | 0° | 85.73 4.28 87.33 5.78 |  |
-| J4 | Top | 44.54 | 68.62 | 1.50 | 0° | 44.54 68.62 46.18 70.12 |  |
-| J5 | Top | 74.90 | 68.26 | 1.50 | 90° | 74.90 68.26 76.40 69.86 |  |
-| J6 | Top | 106.93 | 4.28 | 1.50 | 0° | 106.93 4.28 108.49 5.78 |  |
-| J7 | Top | 112.70 | 39.22 | 1.50 | 90° | 112.70 39.22 114.20 40.82 |  |
+| J1 | Top | 9.61 | 77.83 | 1.50 | 0° | 9.61 77.83 10.85 79.33 |  |
+| J2 | Top | 8.41 | 0.84 | 1.50 | 0° | 8.41 0.84 10.01 2.34 |  |
+| J3 | Top | 77.42 | 0.62 | 1.50 | 0° | 77.42 0.62 79.02 2.12 |  |
+| J4 | Top | 35.00 | 77.83 | 1.50 | 0° | 35.00 77.83 36.64 79.33 |  |
+| J5 | Top | 62.00 | 77.83 | 1.50 | 0° | 62.00 77.83 63.60 79.33 |  |
+| J6 | Top | 94.82 | 2.12 | 1.50 | 0° | 94.82 2.12 96.38 3.62 |  |
+| J7 | Top | 116.55 | 41.83 | 1.50 | 90° | 116.55 41.83 118.05 43.43 |  |
 | J8 | Top | 90.18 | 75.45 | 1.50 | 0° | 90.18 75.45 91.78 76.95 |  |
 | J20 | Top | 33.23 | 62.03 | 1.50 | 90° | 33.23 62.03 34.73 64.60 |  |
-| J21 | Top | 41.19 | 32.07 | 1.50 | 0° | 41.19 32.07 43.41 33.57 |  |
-| J22 | Top | 33.28 | 39.17 | 1.50 | 0° | 33.28 39.17 35.85 40.67 |  |
+| J21 | Top | 7.08 | 31.92 | 1.50 | 0° | 7.08 31.92 9.30 33.42 |  |
+| J22 | Top | 7.08 | 39.32 | 1.50 | 0° | 7.08 39.32 9.66 40.82 |  |
 | K1 | Top | 73.39 | 34.15 | 1.00 | 0° | 73.39 34.15 74.34 35.15 |  |
 | K2 | Top | 89.39 | 34.15 | 1.00 | 0° | 89.39 34.15 90.58 35.15 |  |
 | LED1 | Top | 109.77 | 77.88 | 1.00 | 0° | 109.77 77.88 111.96 78.88 |  |
@@ -443,40 +491,87 @@ Même convention que l'annexe A. Colonne « Défauts » : critères stricts du �
 | U15 | Top | 26.33 | 62.63 | 1.00 | 90° | 26.33 62.63 27.33 64.24 |  |
 | U16 | Top | 9.42 | 55.83 | 1.00 | 0° | 9.42 55.83 11.00 56.83 | devkit |
 | U17 | Top | 100.60 | 65.54 | 1.00 | 90° | 100.60 65.54 101.60 67.15 |  |
-| «1 +5V  2 GND» | Top | 25.50 | 70.55 | 1.00 | 0° | 25.50 70.55 32.90 71.55 |  |
+| «+5V» | Top | 21.71 | 74.95 | 1.20 | 0° | 21.71 74.95 24.12 76.15 |  |
+| «+12V» | Top | 10.00 | 6.70 | 1.20 | 0° | 10.00 6.70 12.92 7.90 |  |
+| «0V» | Top | 15.79 | 6.70 | 1.20 | 0° | 15.79 6.70 17.29 7.90 |  |
+| «1 +5V» | Top | 110.75 | 44.32 | 1.20 | 0° | 110.75 44.32 114.36 45.52 |  |
 | «1 A DROITE» | Top | 54.00 | 63.75 | 1.00 | 0° | 54.00 63.75 59.77 64.75 |  |
 | «1» | Top | 63.40 | 59.90 | 1.00 | 0° | 63.40 59.90 63.70 60.90 |  |
-| «1» | Top | 11.15 | 13.23 | 1.00 | 0° | 11.15 13.23 11.45 14.23 |  |
-| «1» | Top | 78.99 | 9.88 | 1.00 | 0° | 78.99 9.88 79.28 10.88 |  |
-| «1» | Top | 93.45 | 7.50 | 1.00 | 0° | 93.45 7.50 93.74 8.50 |  |
-| «1» | Top | 108.69 | 40.08 | 1.00 | 0° | 108.69 40.08 108.98 41.08 |  |
-| «1/4 COM  2/5 NO  3/6 NC  J5.7 X» | Top | 63.00 | 52.00 | 1.00 | 0° | 63.00 52.00 82.35 53.00 |  |
-| «3 PWM  4 STAT» | Top | 25.50 | 69.25 | 1.00 | 0° | 25.50 69.25 33.90 70.25 |  |
+| «1» | Top | 22.74 | 73.40 | 1.20 | 0° | 22.74 73.40 23.09 74.60 |  |
+| «1» | Top | 55.75 | 73.40 | 1.20 | 0° | 55.75 73.40 56.10 74.60 |  |
+| «1» | Top | 86.55 | 73.40 | 1.20 | 0° | 86.55 73.40 86.91 74.60 |  |
+| «1» | Top | 11.28 | 8.20 | 1.20 | 0° | 11.28 8.20 11.64 9.40 |  |
+| «1» | Top | 79.12 | 5.40 | 1.20 | 0° | 79.12 5.40 79.48 6.60 |  |
+| «1» | Top | 96.51 | 5.40 | 1.20 | 0° | 96.51 5.40 96.87 6.60 |  |
+| «2 -» | Top | 110.75 | 49.40 | 1.20 | 0° | 110.75 49.40 113.00 50.60 |  |
+| «2» | Top | 18.79 | 73.40 | 1.20 | 0° | 18.79 73.40 19.43 74.60 |  |
+| «2» | Top | 51.80 | 73.40 | 1.20 | 0° | 51.80 73.40 52.44 74.60 |  |
+| «2» | Top | 82.60 | 73.40 | 1.20 | 0° | 82.60 73.40 83.24 74.60 |  |
+| «2» | Top | 16.22 | 8.20 | 1.20 | 0° | 16.22 8.20 16.86 9.40 |  |
+| «2» | Top | 82.79 | 5.40 | 1.20 | 0° | 82.79 5.40 83.43 6.60 |  |
+| «2» | Top | 100.18 | 5.40 | 1.20 | 0° | 100.18 5.40 100.82 6.60 |  |
+| «3 ARM» | Top | 110.75 | 54.48 | 1.20 | 0° | 110.75 54.48 114.58 55.68 |  |
+| «3» | Top | 14.98 | 73.40 | 1.20 | 0° | 14.98 73.40 15.62 74.60 |  |
+| «3» | Top | 47.99 | 73.40 | 1.20 | 0° | 47.99 73.40 48.63 74.60 |  |
+| «3» | Top | 78.79 | 73.40 | 1.20 | 0° | 78.79 73.40 79.43 74.60 |  |
+| «3» | Top | 103.99 | 5.40 | 1.20 | 0° | 103.99 5.40 104.63 6.60 |  |
 | «3V3» | Top | 92.66 | 77.75 | 1.00 | 0° | 92.66 77.75 94.55 78.75 |  |
+| «4» | Top | 11.15 | 73.40 | 1.20 | 0° | 11.15 73.40 11.82 74.60 |  |
+| «4» | Top | 44.16 | 73.40 | 1.20 | 0° | 44.16 73.40 44.83 74.60 |  |
+| «4» | Top | 74.97 | 73.40 | 1.20 | 0° | 74.97 73.40 75.64 74.60 |  |
 | «5 A DROITE» | Top | 83.00 | 58.00 | 1.00 | 0° | 83.00 58.00 89.00 59.00 |  |
+| «5» | Top | 40.37 | 73.40 | 1.20 | 0° | 40.37 73.40 41.01 74.60 |  |
+| «5» | Top | 71.17 | 73.40 | 1.20 | 0° | 71.17 73.40 71.81 74.60 |  |
+| «6» | Top | 36.57 | 73.40 | 1.20 | 0° | 36.57 73.40 37.18 74.60 |  |
+| «6» | Top | 67.38 | 73.40 | 1.20 | 0° | 67.38 73.40 67.98 74.60 |  |
+| «7» | Top | 63.55 | 73.40 | 1.20 | 0° | 63.55 73.40 64.19 74.60 |  |
+| «12V» | Top | 95.69 | 3.90 | 1.20 | 0° | 95.69 3.90 97.69 5.10 |  |
 | «22» | Top | 4.40 | 59.90 | 1.00 | 0° | 4.40 59.90 5.58 60.90 |  |
-| «BEBL  CARTE PWM SECURISEE ESP32  V1.0  11/2026» | Top | 22.00 | 1.60 | 1.20 | 0° | 22.00 1.60 55.54 2.80 |  |
+| «ARMEMENT» | Top | 116.75 | 44.49 | 1.20 | 90° | 116.75 44.49 117.95 50.78 |  |
+| «BEBL CARTE PWM SECURISEE ESP32 V1.0 11/2026» | Top | 21.00 | 1.00 | 2.00 | 0° | 21.00 1.00 73.65 3.00 |  |
 | «C311-C314» | Top | 54.00 | 65.05 | 1.00 | 0° | 54.00 65.05 59.25 66.05 |  |
 | «C315-C318» | Top | 83.00 | 59.30 | 1.00 | 0° | 83.00 59.30 88.46 60.30 |  |
+| «COM» | Top | 54.74 | 74.95 | 1.20 | 0° | 54.74 74.95 57.11 76.15 |  |
+| «COM» | Top | 43.31 | 74.95 | 1.20 | 0° | 43.31 74.95 45.68 76.15 |  |
+| «COM» | Top | 85.54 | 74.95 | 1.20 | 0° | 85.54 74.95 87.92 76.15 |  |
+| «COM» | Top | 74.11 | 74.95 | 1.20 | 0° | 74.11 74.95 76.49 76.15 |  |
+| «CONTACT NC» | Top | 97.48 | 2.27 | 1.20 | 0° | 97.48 2.27 105.34 3.47 |  |
 | «DOMAINE PUISSANCE 12 V ISOLE (GND_P)» | Top | 22.00 | 23.60 | 1.00 | 0° | 22.00 23.60 43.76 24.60 |  |
+| «ENTRAXE 22,86 (ESPRESSIF)» | Top | 10.67 | 39.47 | 1.20 | 0° | 10.67 39.47 28.70 40.67 |  |
+| «ENTRAXE 25,40 (CARTES PLUS LARGES)» | Top | 10.67 | 32.07 | 1.20 | 0° | 10.67 32.07 36.21 33.27 |  |
+| «ENTREE 12V» | Top | 11.07 | 0.99 | 1.20 | 0° | 11.07 0.99 18.41 2.19 |  |
+| «ENTREE PWM» | Top | 12.27 | 77.98 | 1.20 | 0° | 12.27 77.98 20.07 79.18 |  |
 | «ESP32-S3-DevKitC-1  (N8, N8R2, N16R8)» | Top | 12.00 | 47.60 | 1.20 | 0° | 12.00 47.60 38.08 48.80 |  |
 | «EX1» | Top | 95.20 | 77.75 | 1.00 | 0° | 95.20 77.75 96.78 78.75 |  |
 | «EX2» | Top | 97.74 | 77.75 | 1.00 | 0° | 97.74 77.75 99.55 78.75 |  |
+| «FDC RENTRE  R1:1-3  R2:4-6» | Top | 37.66 | 77.98 | 1.20 | 0° | 37.66 77.98 56.45 79.18 |  |
+| «FDC SORTI  S1:1-3  S2:4-6» | Top | 64.66 | 77.98 | 1.20 | 0° | 64.66 77.98 82.34 79.18 |  |
 | «GND» | Top | 100.28 | 77.75 | 1.00 | 0° | 100.28 77.75 102.15 78.75 |  |
+| «GND» | Top | 17.98 | 74.95 | 1.20 | 0° | 17.98 74.95 20.23 76.15 |  |
 | «ISOLATION 3 mm : AUCUN CUIVRE» | Top | 3.00 | 28.50 | 1.00 | 0° | 3.00 28.50 20.77 29.50 |  |
-| «J1 ENTREE PWM» | Top | 25.50 | 71.85 | 1.00 | 0° | 25.50 71.85 33.55 72.85 |  |
-| «J2 12V  1:+  2:-» | Top | 8.00 | 16.30 | 1.00 | 0° | 8.00 16.30 17.07 17.30 |  |
-| «J3 VERIN 1:ROUGE 2:NOIR» | Top | 69.50 | 17.20 | 1.00 | 0° | 69.50 17.20 82.67 18.20 |  |
-| «J4 FDC RENTRE  J5 FDC SORTI» | Top | 63.00 | 53.30 | 1.00 | 0° | 63.00 53.30 79.60 54.30 |  |
-| «J6 5e CONTACT NC : PONTER 1-3 SI ABSENT» | Top | 89.00 | 10.10 | 1.00 | 0° | 89.00 10.10 113.11 11.10 |  |
-| «J7 ARMEMENT : PONT 1-3 = ARME» | Top | 105.90 | 41.50 | 1.00 | 90° | 105.90 41.50 106.90 59.75 |  |
 | «J8 EXTENSION 3V3 MAX» | Top | 90.40 | 62.25 | 1.00 | 90° | 90.40 62.25 91.40 74.71 |  |
-| «J21 : ENTRAXE 25,40   J22 : ENTRAXE 22,86 (ESPRESSIF)» | Top | 8.00 | 31.60 | 1.00 | 0° | 8.00 31.60 39.40 32.60 |  |
+| «LIBRE» | Top | 62.24 | 74.95 | 1.20 | 0° | 62.24 74.95 65.50 76.15 |  |
+| «LIBRE» | Top | 98.87 | 3.90 | 1.20 | 0° | 98.87 3.90 102.13 5.10 |  |
+| «NC» | Top | 47.58 | 74.95 | 1.20 | 0° | 47.58 74.95 49.04 76.15 |  |
+| «NC» | Top | 36.15 | 74.95 | 1.20 | 0° | 36.15 74.95 37.61 76.15 |  |
+| «NC» | Top | 78.38 | 74.95 | 1.20 | 0° | 78.38 74.95 79.84 76.15 |  |
+| «NC» | Top | 66.95 | 74.95 | 1.20 | 0° | 66.95 74.95 68.41 76.15 |  |
+| «NO» | Top | 51.37 | 74.95 | 1.20 | 0° | 51.37 74.95 52.86 76.15 |  |
+| «NO» | Top | 39.94 | 74.95 | 1.20 | 0° | 39.94 74.95 41.43 76.15 |  |
+| «NO» | Top | 82.18 | 74.95 | 1.20 | 0° | 82.18 74.95 83.67 76.15 |  |
+| «NO» | Top | 70.75 | 74.95 | 1.20 | 0° | 70.75 74.95 72.24 76.15 |  |
+| «NOIR» | Top | 81.79 | 3.90 | 1.20 | 0° | 81.79 3.90 84.42 5.10 |  |
+| «PONT 1-3 = ARME» | Top | 114.90 | 44.23 | 1.20 | 90° | 114.90 44.23 116.10 55.77 |  |
+| «PWM» | Top | 14.06 | 74.95 | 1.20 | 0° | 14.06 74.95 16.53 76.15 |  |
 | «R311-R314» | Top | 54.00 | 67.65 | 1.00 | 0° | 54.00 67.65 59.20 68.65 |  |
 | «R315-R318» | Top | 83.00 | 61.90 | 1.00 | 0° | 83.00 61.90 88.41 62.90 |  |
 | «R321-R324» | Top | 54.00 | 66.35 | 1.00 | 0° | 54.00 66.35 59.67 67.35 |  |
 | «R325-R328» | Top | 83.00 | 60.60 | 1.00 | 0° | 83.00 60.60 88.88 61.60 |  |
-| «S/N :» | Top | 20.50 | 4.10 | 1.00 | 0° | 20.50 4.10 23.37 5.10 |  |
+| «RET» | Top | 103.22 | 3.90 | 1.20 | 0° | 103.22 3.90 105.40 5.10 |  |
+| «ROUGE» | Top | 77.37 | 3.90 | 1.20 | 0° | 77.37 3.90 81.23 5.10 |  |
+| «S/N :» | Top | 20.50 | 4.40 | 2.00 | 0° | 20.50 4.40 26.21 6.40 |  |
+| «SINON PONT 1-3» | Top | 95.37 | 0.62 | 1.20 | 0° | 95.37 0.62 105.63 1.82 |  |
+| «STAT» | Top | 9.95 | 74.95 | 1.20 | 0° | 9.95 74.95 13.02 76.15 |  |
 | «TP1 5V» | Top | 18.14 | 56.55 | 1.00 | 0° | 18.14 56.55 21.69 57.55 |  |
 | «TP2 3V3» | Top | 52.63 | 54.55 | 1.00 | 0° | 52.63 54.55 57.07 55.55 |  |
 | «TP3 GND» | Top | 41.83 | 51.05 | 1.00 | 0° | 41.83 51.05 46.25 52.05 |  |
@@ -484,3 +579,4 @@ Même convention que l'annexe A. Colonne « Défauts » : critères stricts du �
 | «TP5 12V» | Top | 62.33 | 21.05 | 1.00 | 0° | 62.33 21.05 66.54 22.05 |  |
 | «TP6 GND_P» | Top | 65.21 | 7.05 | 1.00 | 0° | 65.21 7.05 71.02 8.05 |  |
 | «USB» | Top | 1.00 | 44.00 | 1.20 | 90° | 1.00 44.00 2.20 46.16 |  |
+| «VERIN» | Top | 80.08 | 0.77 | 1.20 | 0° | 80.08 0.77 83.47 1.97 |  |
