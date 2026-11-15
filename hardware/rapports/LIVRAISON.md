@@ -18,11 +18,11 @@ Fichiers de `hardware/exports/` :
 | Fichier | Usage |
 |---|---|
 | `Gerber_FABLE52_PCB_ESP32_2026-11-15_R3.zip` | **À déposer** (corrections de la revue, DEC-032) |
-| `Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` | Périmé (avant les corrections de la revue) |
-| `Gerber_FABLE52_PCB_ESP32_2026-11-14.zip` | Périmé (ancienne sérigraphie), gardé pour mémoire |
+| `perimes/Gerber_FABLE52_PCB_ESP32_2026-11-15.zip` | Périmé (avant les corrections de la revue) |
+| `perimes/Gerber_FABLE52_PCB_ESP32_2026-11-14.zip` | Périmé (ancienne sérigraphie), gardé pour mémoire |
 | `BOM_JLCPCB_2026-11-15_R3.csv` | **À déposer.** BOM pour l'assemblage (colonnes Comment, Designator, Footprint, LCSC Part #) |
 | `CPL_JLCPCB_2026-11-15_R3.csv` | **À déposer.** Positions pour l'assemblage |
-| `*_2026-11-14.*` | Périmés |
+| `perimes/*_2026-11-14.*` | Périmés |
 | `BOM_EasyEDA_…`, `CPL_EasyEDA_…` (.csv, .xlsx) | Exports d'origine d'EasyEDA, acceptés aussi par JLCPCB |
 
 Le plus simple reste de commander depuis EasyEDA (menu de commande du PCB) : les fichiers sont alors générés par l'outil lui-même.
