@@ -38,7 +38,7 @@ J2.1 +12V_IN ─ F2 (PTC 0,5 A) ─ +12V_F ─ D2 (TVS 15 V) ─ Q8 ═ Q9 (dos 
 
 | Élément | Valeur | Source |
 |---|---|---|
-| Seuil de coupure en surtension | 1,25 V × (95,3 + 10) / 10 = 13,16 V typique (12,27 à 14,04 V) | Reprise STM32 DEC-065, BOM §4 point 4 |
+| Seuil de coupure en surtension | 1,25 V × (110 + 10) / 10 = 15,0 V typique (14,0 à 16,0 V, même dispersion relative que le calcul d'origine) | DEC-022 (2026-11-15). Ancien seuil : 13,16 V (12,27 à 14,04 V), STM32 DEC-065 |
 | Zener D8 10 V entre grille et source | VGS max de l'AO3400A : ±12 V | Reprise STM32 BOM §4 point 5 |
 | Inversion de polarité | D2 conduit en direct, F2 déclenche ; Q9 bloque le retour | Analyse de la netlist |
 | Courant du vérin | ≤ 200 mA en blocage | Reprise STM32 PO-27 |

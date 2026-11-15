@@ -45,7 +45,7 @@ Stock : releve sur jlcpcb.com/partdetail/<code> le 2026-11-14. « Dispo » = qua
 | U5 | 1 | LM74502 | LM74502DDFR | C3236215 | Extended | CMS | 7557 | 7472 |  |
 | C501 | 1 | 220nF | CL10B224KA8NNNC | C21120 | Basic | CMS | 1035555 | 864219 |  |
 | D8 | 1 | BZT52C10 | BZT52C10 | C2103 | Extended | CMS | 57520 | 52394 |  |
-| R502 | 1 | 95.3k | 0603WAF9532T5E | C23267 | Extended | CMS | 73505 | 67459 |  |
+| R502 | 1 | 110k | 0603WAF1103T5E | C25805 | Extended | CMS | 207428 | 140500 | DEC-022 : remplace 95,3 k (C23267), relevé du 2026-11-15 |
 | J6 | 1 | Bornier 3 pts 3,81 | WJ15EDGRC-3.81-03P-14-00A | C8406 | Extended | Traversant | 60194 | 55488 |  |
 | J3 | 1 | Bornier 2 pts 3,81 | WJ15EDGRC-3.81-02P-14-00A | C8387 | Extended | Traversant | 174902 | 158212 |  |
 | D3 | 1 | SMAJ15CA | SMAJ15CA | C151939 | Extended | CMS | 11556 | 11146 |  |

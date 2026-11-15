@@ -67,4 +67,7 @@
 - Julien a remplacé LED1 par « Use Recommended Device » dans le PCB : écart de référence de bibliothèque avec le schéma, DRC 1 ligne « Netlist Error » (PO-23). Attributs du schéma alignés ; import lancé, attend « Apply ».
 - Julien : source 12 V non choisie. Impact à 12,5 V et proposition R502 = 110 k consignés (PO-19).
 
+- Julien a cliqué « Apply » : DRC 0 (PO-23 clos). Accord de Julien pour R502 = 110 kΩ (DEC-022) : modifiée en place. Piège retrouvé : la modification des propriétés côté PCB vide le code fournisseur ; il faut le réécrire dans un second appel.
+- Contrôles finaux : netlist 0 écart, ERC 1 avertissement (PO-22), DRC 0, isolement 2,34 mm.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

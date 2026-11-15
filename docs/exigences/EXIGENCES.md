@@ -15,7 +15,7 @@
 | EX-06 | Relecture de l'état des deux relais | Julien ; STM32 DEC-023 | N : pôle B de K1, K2 vers `K1_FB`, `K2_FB` |
 | EX-07 | Présence 12 V lue par optocoupleur | Julien ; STM32 DEC-024 | N : U6 entre `+12V_P` et `V12_OK` |
 | EX-08 | Isolation et masses séparées entre le domaine 12 V et le domaine 5 V / PWM | Julien ; STM32 DEC-021 | N : seuls K1, K2, U6, U7 touchent les deux domaines ; P : ≥ 2 mm entre cuivres des deux domaines, hors empreinte des relais |
-| EX-09 | Protection du 12 V pour une source non maîtrisée : inversion, surtension, fusible | Julien ; STM32 DEC-034, DEC-065 | R : F2, D2, U5 + Q8 / Q9, seuil 13,16 V typique |
+| EX-09 | Protection du 12 V pour une source non maîtrisée : inversion, surtension, fusible | Julien ; STM32 DEC-034, DEC-065 | R : F2, D2, U5 + Q8 / Q9, seuil 15,0 V typique (DEC-022) |
 | EX-10 | Pompe de charge sur K1, watchdog externe sur K2, 5e contact d'arrêt matériel (J6) relu par optocoupleur | Julien (Q3 : « tu conserves tout ») ; STM32 architecture §5, §6 | N : Q3 commandé par `CP_OUT`, Q5 par `WD_OK`, `NO_FEED` entre J6 et le NO de K1, U7 |
 | EX-11 | États des GPIO au démarrage : aucune action possible | Julien (revue finale) | R : rappels à la masse sur `K1_G`, `K2_G`, `WDT_KICK` ; `CP_DRV` couplé par condensateur ; aucune broche de démarrage sur une commande |
 
