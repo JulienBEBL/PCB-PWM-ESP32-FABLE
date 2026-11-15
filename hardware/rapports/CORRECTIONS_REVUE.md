@@ -8,7 +8,7 @@
 
 | N° revue | Tri | Action | Résultat | Preuve |
 |---|---|---|---|---|
-| §8.1 (G6K) | C1 | Dessin Omron lu **en image** ; pastilles du PCB relues | **Conforme.** Bobine 1 + / 8 − ; communs 3, 6 ; NC 2, 7 ; NO 4, 5. Empreinte non miroir. Repos = rentrée | DEC-025. Omron `en-g6k.pdf` p. 6 « G6K-2F-Y, Terminal Arrangement (TOP VIEW) » ; Actuonix L12 : rouge = V+ → sortie |
+| §8.1 (G6K) | C1 | Dessin Omron lu **en image** ; pastilles du PCB relues | **Conforme.** Bobine 1 + / 8 − ; communs 3, 6 ; NC 2, 7 ; NO 4, 5. Empreinte non miroir. Repos = rentrée | DEC-025. Omron `en-g6k.pdf` p. 6 « G6K-2F-Y, Terminal Arrangement (TOP VIEW) », image : `g6k2fy_brochage_omron.png` (SHA-256 du PDF 25d20461…bec57) ; Actuonix L12 : rouge = V+ → sortie |
 | §8.4 (D1) | C2 | Image de l'empreinte | **Conforme.** Barre de cathode côté pastille 1 = `+5V_F` | DEC-026, `pcb_zoom.mjs d1` |
 | S1 | C3 | Recherche d'un TVS VC < 6 V en stock JLCPCB | **Aucun ne convient** (VBR min 6,4 V, VC 9,2 V). D1 inchangée, risque accepté | DEC-026, PO-27 |
 | S5 | C4 | R502 110 k → **97,6 k** (C23269) ; 2 notes de la page 09 | Coupure **13,45 V** typ. (12,5 à 14,4 V) | DEC-027. Relu par l'API, schéma et PCB |
