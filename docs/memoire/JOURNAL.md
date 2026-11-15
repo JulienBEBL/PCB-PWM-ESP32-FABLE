@@ -61,4 +61,7 @@
 - Capture de Julien : C114586 « removed from our assembly library ». LED1 remplacée par C2843785 (DEC-021), datasheet lue.
 - Seconde revue du schéma et du routage, hors ligne (pont sans fenêtre EasyEDA) : aucune erreur bloquante ; PO-18 à PO-21 ouverts.
 
+- EasyEDA reconnecté (uuid vérifié). LED1 mise à jour en place dans le schéma et le PCB. Netlist 0 écart, DRC 0, isolement 2,34 mm. ERC : 1 avertissement dû à la référence de LED1 (PO-22).
+- Julien : vérin L12-30-50-12-S (PO-20 clos). PO-19 toujours sans réponse.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

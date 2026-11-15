@@ -34,10 +34,12 @@ Julien est sur la page de commande JLCPCB.
 
 | Sujet | État |
 |---|---|
-| LED1 | C114586 retirée de l'assemblage. Remplacée par C2843785 (DEC-021) dans la netlist cible, la BOM et `BOM_JLCPCB_2026-11-14.csv`. Julien doit confirmer qu'elle est sélectionnable |
-| Seconde revue (schéma, routage) | Faite hors ligne : `hardware/rapports/REVUE_2_SCHEMA_ROUTAGE.md`. Aucune erreur bloquante |
-| Questions à Julien | PO-19 (tension maximale de la source 12 V, **avant commande**), PO-20 (modèle du vérin) |
-| EasyEDA | Non connecté au pont le 15. À faire à la reconnexion : PO-18 (attribut de LED1), PO-21 (plans, DRC) |
+| LED1 | C2843785 (DEC-021) partout : netlist cible, BOM, `BOM_JLCPCB_2026-11-14.csv`, schéma et PCB EasyEDA. Julien doit confirmer qu'elle est sélectionnable chez JLCPCB (PO-16) |
+| Contrôles du 15 (EasyEDA reconnecté) | Netlist 0 écart ; ERC 0 erreur, 1 avertissement (PO-22, attribut de LED1) ; DRC 0 erreur, 0 liaison ouverte ; isolement 2,34 mm |
+| Seconde revue | `hardware/rapports/REVUE_2_SCHEMA_ROUTAGE.md`. Aucune erreur bloquante |
+| Vérin | L12-30-50-12-S, fins de course internes (PO-20 clos) |
+| **Question en attente** | PO-19 : tension maximale de la source 12 V. Si > 12,2 V : changer R502 **avant commande** |
+| Simulation | Julien a demandé ce qui est simulable. Réponse : table d'états et pannes simples par script ; pas de SPICE installé |
 
 Préférence de Julien : réponses très simples, sans phrases longues.
 

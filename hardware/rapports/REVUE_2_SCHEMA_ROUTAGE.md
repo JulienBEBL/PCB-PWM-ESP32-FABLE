@@ -74,3 +74,30 @@ Demandée par Julien avant la commande. Faite par Claude, hors ligne : EasyEDA n
 | Courant | — | 12 mA par couleur |
 
 Source : datasheet XINGLIGHT lue sur LCSC le 2026-11-15 (pages 4, 5, 11). Empreinte et routage inchangés. Reste à faire : mettre à jour l'attribut de LED1 dans EasyEDA (PO-18).
+
+## 5. Contrôles refaits dans EasyEDA (2026-11-15, après reconnexion)
+
+| Contrôle | Résultat |
+|---|---|
+| Uuid du projet | `836928ac4399433ab9cd56636d997eda` |
+| LED1 dans le schéma et le PCB | C2843785, position inchangée |
+| Netlist exportée contre cible | 136 composants, 78 nets, 0 écart |
+| ERC | 0 erreur, 1 avertissement : apparaît avec la nouvelle référence de LED1, disparaît avec l'ancienne (PO-22) |
+| DRC | 0 erreur, 0 liaison ouverte |
+| Isolement | 2,34 mm, 0 violation |
+| Plans | 6 présents : `GND` et `GND_P` (L2, L4), `+3V3` et `+12V_P` (L3) |
+| Vue d'ensemble | Relue sur image : bande d'isolement nette, pas d'anomalie visible |
+
+## 6. États du vérin (L12-30-50-12-S)
+
+| K1 | K2 | Contact J6 | `VERIN_A` | `VERIN_B` | Vérin |
+|---|---|---|---|---|---|
+| repos | repos | indifférent | `GND_P` | `+12V_P` | Rentre, puis s'arrête seul en butée |
+| collé | repos | fermé | `+12V_P` | `+12V_P` | Arrêt |
+| collé | repos | ouvert | en l'air | `+12V_P` | Arrêt |
+| repos | collé | indifférent | `GND_P` | `GND_P` | Arrêt |
+| collé | collé | fermé | `+12V_P` | `GND_P` | Sort, puis s'arrête seul en butée |
+| collé | collé | ouvert | en l'air | `GND_P` | Arrêt |
+| — | — | 12 V absent | — | — | Immobile |
+
+Sens « rouge au + = sortie » : PO-07, à vérifier à vide.
