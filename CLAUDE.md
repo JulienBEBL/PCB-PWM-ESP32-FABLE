@@ -14,6 +14,7 @@ Livrable : projet EasyEDA Pro prêt à commander chez JLCPCB (PCB 4 couches + as
 2. `docs/memoire/DECISIONS.md` — décisions (DEC-xxx).
 3. `docs/memoire/POINTS_OUVERTS.md` — points ouverts (PO-xx).
 4. `docs/memoire/JOURNAL.md` — historique par session.
+   `docs/memoire/FONCTIONNEMENT_CARTE.md` — fonctionnement, GPIO, règles firmware (référence pour coder l'ESP32).
 5. Selon la phase : `docs/exigences/`, `docs/architecture/`, `hardware/bom/`, `hardware/rapports/`.
 6. `old/` : anciens dépôts, **sources de connaissance seulement** (jamais modifiés, jamais des spécifications).
 
