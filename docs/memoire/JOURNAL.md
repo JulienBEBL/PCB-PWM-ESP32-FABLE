@@ -52,4 +52,10 @@
 - Stock relevé une seconde fois : 45 / 45 disponibles.
 - Rapports : `REVUE_FINALE.md`, `LIVRAISON.md`.
 
+**2026-11-15 — commande en cours chez JLCPCB**
+
+- Droit d'écriture GitHub accordé : tous les commits poussés (PO-06 clos).
+- Julien a chargé les fichiers sur JLCPCB : toutes les lignes reconnues sauf **LED1** (PO-16).
+- Julien demande une assurance de fonctionnement sans relecture de sa part (PO-17). Il va lancer un /compact ; la réponse est due juste après.
+
 **Prochaine session :** voir `ETAT_PROJET.md`.

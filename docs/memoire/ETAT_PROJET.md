@@ -28,6 +28,15 @@ Projet `FABLE52_PCB_ESP32` (`836928ac4399433ab9cd56636d997eda`), enregistré.
 
 Pages du schéma : 01_ALIM_5V_3V3 `23891438148d8911`, 02_ESP32_DEVKIT `0b70001258193e30`, 03_ENTREE_PWM `9e3e9cc2c1aa5c3e`, 04_FINS_DE_COURSE `cf79095e8e4cc8c3`, 05_EXTENSION `54a4ef5528ca2c5c`, 06_RELAIS_K1_POMPE `d18f0af72a4cec22`, 07_RELAIS_K2_WATCHDOG `8e6b3fefa807e9ce`, 08_IHM_STATUS `f472b8bb88dc5069`, 09_PUISSANCE_12V_ENTREE `f974eef09e9da1fa`, 10_VERIN_OPTOS `8c889d2021e11d54`.
 
+## En cours au 2026-11-15 (à reprendre en premier)
+
+Julien est sur la page de commande JLCPCB. Deux sujets ouverts :
+
+1. **PO-16** : LED1 (C114586) non reconnue par JLCPCB (« No Part Selected »). Tout le reste est reconnu. À résoudre avant commande.
+2. **PO-17** : Julien demande comment être assuré que la carte fonctionne, sans pouvoir la vérifier lui-même. Répondre court et honnêtement.
+
+Préférence de Julien : réponses très simples, sans phrases longues.
+
 ## Ce qui reste à Julien
 
 1. Relire `hardware/rapports/LIVRAISON.md` §4 (vérifications avant de payer) et `docs/memoire/DECISIONS.md`.
