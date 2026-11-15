@@ -38,7 +38,7 @@ Julien est sur la page de commande JLCPCB.
 | Contrôles du 15 (EasyEDA reconnecté) | Netlist 0 écart ; ERC 0 erreur, 1 avertissement (PO-22, attribut de LED1) ; DRC 0 erreur, 0 liaison ouverte ; isolement 2,34 mm |
 | Seconde revue | `hardware/rapports/REVUE_2_SCHEMA_ROUTAGE.md`. Aucune erreur bloquante |
 | Vérin | L12-30-50-12-S, fins de course internes (PO-20 clos) |
-| **Question en attente** | PO-19 : tension maximale de la source 12 V. Si > 12,2 V : changer R502 **avant commande** |
+| **En attente de Julien** | (1) PO-23 : clic « Apply » sur l'import schéma → PCB, puis DRC à relancer (1 ligne « Netlist Error » due à LED1, cuivre intact). (2) PO-19 : source 12 V non choisie ; accord demandé pour R502 = 110 k (seuil 15 V) **avant commande** |
 | Simulation | Julien a demandé ce qui est simulable. Réponse : table d'états et pannes simples par script ; pas de SPICE installé |
 
 Préférence de Julien : réponses très simples, sans phrases longues.

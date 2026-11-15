@@ -64,4 +64,7 @@
 - EasyEDA reconnecté (uuid vérifié). LED1 mise à jour en place dans le schéma et le PCB. Netlist 0 écart, DRC 0, isolement 2,34 mm. ERC : 1 avertissement dû à la référence de LED1 (PO-22).
 - Julien : vérin L12-30-50-12-S (PO-20 clos). PO-19 toujours sans réponse.
 
+- Julien a remplacé LED1 par « Use Recommended Device » dans le PCB : écart de référence de bibliothèque avec le schéma, DRC 1 ligne « Netlist Error » (PO-23). Attributs du schéma alignés ; import lancé, attend « Apply ».
+- Julien : source 12 V non choisie. Impact à 12,5 V et proposition R502 = 110 k consignés (PO-19).
+
 **Prochaine session :** voir `ETAT_PROJET.md`.
