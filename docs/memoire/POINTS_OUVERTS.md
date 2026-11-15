@@ -27,12 +27,12 @@ Un point clos reste listé avec sa résolution. **Criticité :** B = bloque la c
 | PO-31 | 2026-11-15 | **Sens d'ouverture des borniers** (revue §8.8, tri V2). Déduit des empreintes : le corps de J1 à J7 dépasse de 3 à 4,4 mm des pastilles vers le bord le plus proche (0,2 à 0,5 mm du bord) → ouverture vers l'extérieur. Non vu en 3D. | C | — | Julien : vue 3D avant de payer |
 | PO-32 | 2026-11-15 | **Le Gerber à déposer est `Gerber_FABLE52_PCB_ESP32_2026-11-15_R3.zip`**, avec `BOM_JLCPCB_2026-11-15_R3.csv` et `CPL_JLCPCB_2026-11-15_R3.csv` (DEC-032). Remplace PO-26. | **B** (commande) | — | Julien, à la commande |
 | PO-33 | 2026-11-15 | **Source 12 V : 12,5 V au maximum** (DEC-027). Le seuil de coupure peut descendre à 12,5 V (dispersion de VOVR). Une batterie 3S chargée (12,6 V) ou au plomb en charge (13,8 V) peut couper le vérin. Une alimentation 12 V régulée (±2 %) convient. | C | — | Julien : choix de la source |
-| PO-34 | 2026-11-15 | **LED1 tournée de 90° dans l'aperçu de placement JLCPCB** (capture de Julien). Datasheet XINGLIGHT XL-5050RGBC-WS2812B p. 11 (vue de dessus) : 1 VDD haut-gauche, 2 DO bas-gauche, 3 GND bas-droite (coin coupé), 4 DI haut-droite = notre empreinte. Aperçu JLCPCB avec CPL à 0° : repère broche 1 (+ rose) en bas à gauche, coin coupé (triangle rose) en haut à droite, soit 90° dans le sens antihoraire. Conséquence si non corrigé : LED1 hors service (GND sur RGB_DIN, DI sur +5V), sans dommage pour le reste (R421 330 Ω). Correction : tourner LED1 de 90° dans le sens horaire dans l'outil JLCPCB (rotation 270°), jusqu'à « + » en haut à gauche et triangle en bas à droite. Les autres composants polarisés de l'aperçu sont conformes. | **B** (commande) | — | Julien, dans l'outil de placement JLCPCB |
 
 ## Clos
 
 | N° | Clos le | Point | Résolution |
 |---|---|---|---|
+| PO-34 | 2026-11-15 | LED1 tournée de 90° dans l'aperçu JLCPCB | Tournée par Julien dans l'outil de placement : « + » (broche 1, VDD) en haut à gauche, coin coupé (GND) en bas à droite, conforme à la datasheet XINGLIGHT p. 11 et à l'empreinte. Le fichier `CPL_JLCPCB_2026-11-15_R3.csv` garde 0° : **pour une future commande, mettre LED1 à 270° ou refaire la rotation dans l'outil.** Contrôle de l'aperçu le 2026-11-15 : tous les autres composants polarisés conformes (D1 à D12, D17, LED5 non vue de près, K1, K2, U3 à U7, U11, U12, U15 à U17, Q2 à Q9, LS1) |
 | PO-07 | 2026-11-15 | Sens du vérin | Datasheet Actuonix L12 (option -S) : rouge = V+ → sortie. Au repos la carte met le rouge à `GND_P` : rentrée (DEC-025) |
 | PO-09 | 2026-11-15 | Polarité de D1 | Barre de cathode de l'empreinte vue sur l'image du PCB, côté pastille 1 = `+5V_F` (DEC-026) |
 | PO-26 | 2026-11-15 | Gerber du 15 à déposer | Remplacé par PO-32 (exports `_R3`) |
